@@ -8,7 +8,6 @@ namespace BH.Player
     {
         //stats
         [SerializeField] private float m_speed;
-        [SerializeField] private float m_rotationSpeed;
         [SerializeField] private Transform m_enemyTrs;
 
         //own components
