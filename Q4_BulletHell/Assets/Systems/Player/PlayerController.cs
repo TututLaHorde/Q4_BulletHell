@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Rendering;
+using BH.Cam;
 
 namespace BH.Player
 {
@@ -8,6 +8,8 @@ namespace BH.Player
     {
         //stats
         [SerializeField] private float m_speed;
+        [SerializeField] private float m_rotationSpeed;
+        [SerializeField] private Transform m_enemyTrs;
 
         //own components
         private Rigidbody2D m_rb;
@@ -28,6 +30,7 @@ namespace BH.Player
 
         private void FixedUpdate()
         {
+            LookToTarget();
             MoveToTarget();
         }
 
@@ -49,13 +52,33 @@ namespace BH.Player
             if (direction.magnitude < speed * Time.deltaTime)
             {
                 m_ownTrs.position = new Vector3(m_targetPos.x, m_targetPos.y, 0f);
-                m_rb.velocity = Vector2.zero;
-                return;
+                speed = 0f;
             }
 
-            //move
             direction = direction.normalized;
-            m_rb.velocity = direction * speed;
+            Vector2 potentialPos = (Vector2)m_ownTrs.position + direction * speed * Time.deltaTime;
+            if (GameArea.instance.IsInGameArea(potentialPos))
+            {
+                //move to target
+                m_rb.velocity = direction * speed;
+            }
+            else
+            {
+                //move to border of the game area
+                m_ownTrs.position = (Vector3)GameArea.instance.KeepPositionInArea(potentialPos);
+                m_rb.velocity = Vector2.zero;
+            }
+        }
+
+        private void LookToTarget()
+        {
+            Vector2 direction = m_enemyTrs.position - m_ownTrs.position;
+            if (direction.magnitude > 0)
+            {
+                direction = direction.normalized;
+                float angle = Vector2.SignedAngle(Vector2.up, direction);
+                m_ownTrs.rotation = Quaternion.Euler(Vector3.forward * angle);
+            }
         }
     }
 }
