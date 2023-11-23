@@ -30,15 +30,23 @@ namespace BH.Bullets
         {
             Bullet m_newBullet = m_pooling.UseNew();
             m_activeBullet.Add(m_newBullet);
+
+            m_newBullet.Init(origin, direction);
         }
 
         /*-------------------------------------------------------------------*/
 
         private void MoveBullets()
         {
-            foreach (Bullet bullet in m_activeBullet)
+            for (int i = 0;  i < m_activeBullet.Count; i++)
             {
-                bullet.Move();
+                m_activeBullet[i].Move();
+                if (m_activeBullet[i].IsNeedToBeRemove())
+                {
+                    m_pooling.StopUsing(m_activeBullet[i]);
+                    m_activeBullet.RemoveAt(i);
+                    i--;
+                }
             }
         }
     }
