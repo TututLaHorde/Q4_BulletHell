@@ -1,4 +1,5 @@
 using UnityEngine;
+using BH.Enemies;
 
 namespace BH.Player
 {

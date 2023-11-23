@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5165982002314539930}
   - component: {fileID: 4561019523736485965}
   - component: {fileID: 2043988414799331052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PbPlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 35
+  m_dammage: 1
 --- !u!1 &5890669485231388639
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4502697191918490566}
   - component: {fileID: 8108350851151477283}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5863458750590626609}
   - component: {fileID: 6863153859217411035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3853691784926134548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
