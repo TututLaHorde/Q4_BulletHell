@@ -1,4 +1,5 @@
 using UnityEngine;
+using BH.Enemies;
 
 namespace BH.Player
 {
@@ -6,20 +7,41 @@ namespace BH.Player
 
     public class PlayerController : MonoBehaviour
     {
-        public Transform m_enemyTrs;
+        [SerializeField] private EnemiesManager m_enemiesManager;
+        public Transform m_enemyTrs { get; private set; }
 
         private PlayerMovement m_playerMovement;
-        private PlayerShoot m_playerShoot;
+        private Transform m_ownTrs;
 
         private void Start()
         {
             m_playerMovement = GetComponent<PlayerMovement>();
-            m_playerShoot = GetComponent<PlayerShoot>();
+            m_ownTrs = transform;
+
+            SetClosestEnemyTrs();
+        }
+
+        private void FixedUpdate()
+        {
+            SetClosestEnemyTrs();
         }
 
         public void MoveTargetChange(Vector3 targetPos)
         {
             m_playerMovement.m_targetPos = targetPos;
+        }
+
+        private void SetClosestEnemyTrs()
+        {
+            EnemyController enemy = m_enemiesManager.GetClosestEnemy(m_ownTrs.position);
+            if (enemy != null)
+            {
+                m_enemyTrs = enemy.transform;
+            }
+            else
+            {
+                m_enemyTrs = m_ownTrs;
+            }
         }
     }
 }

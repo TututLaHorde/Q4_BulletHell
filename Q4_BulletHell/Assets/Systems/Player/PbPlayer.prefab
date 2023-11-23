@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7712610844282046606}
   - component: {fileID: 8847724538768059257}
   - component: {fileID: 2731738644223333745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PbPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b6445196684c8418433923fefd8e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyTrs: {fileID: 0}
+  m_enemiesManager: {fileID: 0}
 --- !u!114 &8847724538768059257
 MonoBehaviour:
   m_ObjectHideFlags: 0
