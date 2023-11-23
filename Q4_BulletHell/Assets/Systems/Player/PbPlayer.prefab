@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bulletIntervale: 0.01
-  m_bulletAccuracy: 9.7
+  m_bulletSpread: 0.033
   m_bulletManager: {fileID: 0}
   m_shootOrigin: {fileID: 1798919506825895275}
 --- !u!1 &1453326377146418263
