@@ -41,7 +41,8 @@ namespace BH.Enemies
         {
             if (m_bossHpBar != null)
             {
-                m_bossHpBar.SetRatio((float)m_currentHp / (float)m_maxHp);
+                //Debug.Log((float)m_currentHp / m_maxHp);
+                m_bossHpBar.SetRatio((float)m_currentHp / m_maxHp);
             }
         }
     }
