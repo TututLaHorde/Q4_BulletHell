@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private float m_bulletIntervale;
-    [SerializeField][Range(0f, 10f)] private float m_bulletAccuracy;
+    [SerializeField][Range(0f, 0.8f)] private float m_bulletSpread;
 
     [SerializeField] private BulletManager m_bulletManager;
     [SerializeField] private Transform m_shootOrigin;
@@ -26,11 +26,10 @@ public class PlayerShoot : MonoBehaviour
         {
             yield return new WaitForSeconds(m_bulletIntervale);
 
-            Vector3 targetPos = RandomVector2() * (10f - m_bulletAccuracy);
-            targetPos += m_playerController.m_enemyTrs.position;
-            Vector3 dir = targetPos - m_shootOrigin.position;
-            //Debug.Log(dir.normalized);
-            m_bulletManager.Shoot(m_shootOrigin, dir.normalized);
+            Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
+            dir = (dir.normalized + (Vector3)RandomVector2() * m_bulletSpread).normalized;
+
+            m_bulletManager.Shoot(m_shootOrigin, dir);
         }
     }
 
