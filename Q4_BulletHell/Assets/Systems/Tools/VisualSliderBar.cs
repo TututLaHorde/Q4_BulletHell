@@ -26,7 +26,6 @@ namespace BH.Tools
 
         private void SetFillingSize()
         {
-            Debug.Log(m_ratio * m_anchorMax.x + " , " + m_anchorMax.y);
             m_fillingTrs.anchorMax = new Vector2(m_ratio * m_anchorMax.x, m_anchorMax.y);
         }
     }

@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_prefab: {fileID: 238516171576629815, guid: d33623f0ce2315c4993ddb7d1392984c, type: 3}
-  m_nbPreAllocated: 30
+  m_nbPreAllocated: 80
 --- !u!1 &1651148949
 GameObject:
   m_ObjectHideFlags: 0
