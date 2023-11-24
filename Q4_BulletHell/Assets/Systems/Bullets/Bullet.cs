@@ -11,7 +11,7 @@ namespace BH.Bullets
 
         /*-------------------------------------------------------------------*/
 
-        public abstract void Init(Transform origin, Vector3 direction);
+        public abstract void Init(Vector3 origin, Vector3 direction);
         public abstract void Move();
 
         public virtual bool IsNeedToBeRemove()

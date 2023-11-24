@@ -29,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
             Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
             dir = (dir.normalized + (Vector3)RandomVector2() * m_bulletSpread).normalized;
 
-            m_bulletManager.Shoot(m_shootOrigin, dir);
+            m_bulletManager.Shoot(m_shootOrigin.position, dir);
         }
     }
 

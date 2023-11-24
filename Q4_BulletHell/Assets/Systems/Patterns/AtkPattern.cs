@@ -13,7 +13,7 @@ namespace BH.Patterns
 
         protected Transform m_shooterTrs;
 
-        [Header("Burst")]
+        [Header("Bursts")]
         [SerializeField] protected int m_burstNb;
         [SerializeField] protected float m_timeBetweenBurst;
 

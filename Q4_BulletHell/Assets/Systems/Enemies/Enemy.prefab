@@ -46,9 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bulletManager: {fileID: 0}
   m_refreshTime: 0.3
-  m_chargeTime: 0
-  m_burstNb: 0
-  m_timeBetweenBurst: 0
+  m_chargeTime: 0.5
+  m_burstNb: 1
+  m_timeBetweenBurst: 0.2
+  m_startAngle: 360
+  m_endAngle: 360
+  m_distFromCenter: 2
+  m_rotationEachBurst: 0
+  m_nbBullet: 10
 --- !u!1 &4297164877357020651
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,8 +115,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5689373587273763710}
   - {fileID: 194244941269786585}
@@ -216,9 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297039bb7a976de49af787a60a49b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHp: 5000
+  m_maxHp: 3000
   m_bossHpBar: {fileID: 0}
-  m_patternsParent: {fileID: 194244941269786585}
+  m_atkPatterns:
+  - {fileID: 301315403896735975}
 --- !u!1 &6397044100769280312
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 7359453039195517527}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []

@@ -1072,17 +1072,6 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!114 &1967161771 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-  m_PrefabInstance: {fileID: 1720705073354627482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &2001653760 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8565393241796061449, guid: ffe01037c3c4d9d47a9771c7cf4118c0, type: 3}
@@ -1165,21 +1154,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_burstNb
-      value: 5
+      propertyPath: m_endAngle
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_chargeTime
-      value: 1
+      propertyPath: m_nbBullet
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_startAgnle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_startAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_angleOffset
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bulletManager
       value: 
       objectReference: {fileID: 433240601}
-    - target: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_timeBetweenBurst
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 658695532407434565, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_Name
       value: Pattern
@@ -1232,14 +1229,6 @@ PrefabInstance:
       propertyPath: m_bossHpBar
       value: 
       objectReference: {fileID: 2001653761}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[0]
-      value: 
-      objectReference: {fileID: 1967161771}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_atkPatterns.Array.data[1]
       value: 

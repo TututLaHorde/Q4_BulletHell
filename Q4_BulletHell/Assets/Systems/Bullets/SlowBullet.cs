@@ -29,12 +29,12 @@ namespace BH.Bullets
 
         /*-------------------------------------------------------------------*/
 
-        public override void Init(Transform origin, Vector3 direction)
+        public override void Init(Vector3 origin, Vector3 direction)
         {
             gameObject.SetActive(true);
 
             m_initialDir = direction;
-            transform.position = origin.position;
+            transform.position = origin;
             transform.rotation = Quaternion.Euler(Vector3.forward * Vector2.SignedAngle(Vector2.up, direction));
 
             m_isCollidWithPlayer = false;
