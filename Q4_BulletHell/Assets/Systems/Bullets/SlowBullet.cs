@@ -1,4 +1,5 @@
 using BH.Enemies;
+using BH.Player;
 using UnityEngine;
 
 namespace BH.Bullets
@@ -19,9 +20,9 @@ namespace BH.Bullets
                 m_isCollidWithPlayer = true;
 
                 //enemy takes dmg
-                if (collision.gameObject.TryGetComponent(out EnemyController enemyController))
+                if (collision.transform.parent.TryGetComponent(out PlayerController playerController))
                 {
-                    Debug.Log("PLayer is dead : " + m_isCollidWithPlayer);
+                    Debug.Log("Player is dead : " + playerController);
                 }
             }
         }
