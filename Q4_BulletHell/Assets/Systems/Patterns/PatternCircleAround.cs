@@ -1,6 +1,8 @@
 using BH.Enemies;
+using BH.Player;
 using System;
 using System.Collections;
+using UnityEditor.UI;
 using UnityEngine;
 
 namespace BH.Patterns
@@ -15,6 +17,9 @@ namespace BH.Patterns
         [Header("One Burst Params")]
         [SerializeField] private float m_rotationEachBurst;
         [SerializeField] private int m_nbBullet;
+
+        [Header("If targets the player")]
+        [SerializeField] private Transform m_playerTrs;
 
         private EnemyController m_enemy;
 
@@ -38,6 +43,11 @@ namespace BH.Patterns
                 return;
             }
 
+            //targets the player
+            if (m_playerTrs != null) 
+            {
+                LookToTarget(m_enemy.transform, m_playerTrs.position, Vector2.right);
+            }
 
             //shoots
             float angleBetweenBullet = m_angleOffset;
@@ -77,6 +87,15 @@ namespace BH.Patterns
             }
 
             m_enemy.FinishAnAtkPattern();
+        }
+
+        private void LookToTarget(Transform ownTrs, Vector3 tagetPos, Vector2 originalLookingDir)
+        {
+            Vector2 direction = tagetPos - ownTrs.position;
+
+            direction = direction.normalized;
+            float angle = Vector2.SignedAngle(originalLookingDir, direction);
+            ownTrs.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
 }

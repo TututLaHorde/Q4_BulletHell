@@ -47,13 +47,14 @@ MonoBehaviour:
   m_bulletManager: {fileID: 0}
   m_refreshTime: 0.3
   m_chargeTime: 0.5
-  m_burstNb: 1
-  m_timeBetweenBurst: 0.2
-  m_startAngle: 360
-  m_endAngle: 360
+  m_burstNb: 7
+  m_timeBetweenBurst: 0.1
+  m_startAngle: 0
+  m_angleOffset: 360
   m_distFromCenter: 2
-  m_rotationEachBurst: 0
-  m_nbBullet: 10
+  m_rotationEachBurst: 5
+  m_nbBullet: 8
+  m_playerTrs: {fileID: 0}
 --- !u!1 &4297164877357020651
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +85,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3423233604242601189}
+  - {fileID: 5994251848903715700}
+  - {fileID: 4296801170413703095}
   m_Father: {fileID: 792613456794270321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6100401380984449792
@@ -310,6 +313,116 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6610401710162736284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4296801170413703095}
+  - component: {fileID: 1555678669668561211}
+  m_Layer: 0
+  m_Name: 3SniperShoots
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4296801170413703095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6610401710162736284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194244941269786585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1555678669668561211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6610401710162736284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bulletManager: {fileID: 0}
+  m_refreshTime: 0.3
+  m_chargeTime: 0.5
+  m_burstNb: 3
+  m_timeBetweenBurst: 0.3
+  m_startAngle: 31
+  m_angleOffset: 90
+  m_distFromCenter: 2
+  m_rotationEachBurst: 0
+  m_nbBullet: 5
+  m_playerTrs: {fileID: 0}
+--- !u!1 &6645057439421150604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5994251848903715700}
+  - component: {fileID: 6274080273711538815}
+  m_Layer: 0
+  m_Name: 8NegativeBurst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5994251848903715700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645057439421150604}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194244941269786585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6274080273711538815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645057439421150604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bulletManager: {fileID: 0}
+  m_refreshTime: 0.3
+  m_chargeTime: 0
+  m_burstNb: 7
+  m_timeBetweenBurst: 0.1
+  m_startAngle: 0
+  m_angleOffset: 360
+  m_distFromCenter: 2
+  m_rotationEachBurst: -5
+  m_nbBullet: 8
+  m_playerTrs: {fileID: 0}
 --- !u!1 &7359453039195517527
 GameObject:
   m_ObjectHideFlags: 0

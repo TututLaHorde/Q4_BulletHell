@@ -8,7 +8,7 @@ namespace BH.Patterns
     {
         [Header("Global")]
         [SerializeField] protected BulletManager m_bulletManager;
-        [HideInInspector] public float m_refreshTime = 0.3f;
+        [HideInInspector] public float m_refreshTime = 1f;
         public float m_chargeTime;
 
         protected Transform m_shooterTrs;
