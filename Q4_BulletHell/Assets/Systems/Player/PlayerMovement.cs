@@ -59,7 +59,8 @@ namespace BH.Player
 
         private void LookToTarget()
         {
-            Vector2 direction = m_playerController.m_enemyTrs.position - m_ownTrs.position;
+            //Vector2 direction = m_playerController.m_enemyTrs.position - m_ownTrs.position;
+            Vector2 direction = Vector3.right;
 
             direction = direction.normalized;
             float angle = Vector2.SignedAngle(Vector2.up, direction);
