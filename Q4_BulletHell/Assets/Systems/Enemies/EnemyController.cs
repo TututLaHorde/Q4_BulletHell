@@ -4,6 +4,7 @@ using System.Collections;
 
 using BH.Tools;
 using BH.Patterns;
+using BH.Bullets;
 
 namespace BH.Enemies
 {
@@ -28,6 +29,23 @@ namespace BH.Enemies
 
             //first pattern
             StartNextAtkPattern();
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision == null) { return; }
+
+            //collid with enemy
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                //enemy takes dmg
+                if (collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
+                {
+                    Debug.Log("touch");
+                    m_life.TakeDamage(playerBullet.m_damage);
+                    playerBullet.m_isCollidWithEnemy = true;
+                }
+            }
         }
 
         /*-------------------------------------------------------------------*/

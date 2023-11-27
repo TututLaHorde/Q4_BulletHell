@@ -2751,17 +2751,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435319832}
   m_CullTransparentMesh: 1
---- !u!114 &1435934047 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1555678669668561211, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-  m_PrefabInstance: {fileID: 1720705073354627482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1505379885
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,45 +3573,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 169878327}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bossHpBar
       value: 
       objectReference: {fileID: 2001653761}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[0]
-      value: 
-      objectReference: {fileID: 1259897445}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[1]
-      value: 
-      objectReference: {fileID: 1259897445}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[2]
-      value: 
-      objectReference: {fileID: 1259897445}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[3]
-      value: 
-      objectReference: {fileID: 1435934047}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[4]
-      value: 
-      objectReference: {fileID: 1259897445}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[5]
-      value: 
-      objectReference: {fileID: 1717511542}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[6]
-      value: 
-      objectReference: {fileID: 1435934047}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_atkPatterns.Array.data[7]
       value: 
