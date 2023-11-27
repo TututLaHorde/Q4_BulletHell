@@ -75,14 +75,13 @@ namespace BH.Game
         public void PauseGame()
         {
             //Active UI
-            m_pauseUI.SetActive(true);
+            if (Time.timeScale != 0f)
+            {
+                m_pauseUI.SetActive(true);
 
-            m_victoryUI.SetActive(false);
-            m_defeatUI.SetActive(false);
-            m_startingUI.gameObject.SetActive(false);
-
-            //pause game
-            Time.timeScale = 0f;
+                //pause game
+                Time.timeScale = 0f;
+            }
         }
 
         public void PlayGame()
