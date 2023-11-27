@@ -362,7 +362,7 @@ MonoBehaviour:
   m_chargeTime: 0.5
   m_burstNb: 3
   m_timeBetweenBurst: 0.3
-  m_startAngle: 31
+  m_startAngle: 315
   m_angleOffset: 90
   m_distFromCenter: 2
   m_rotationEachBurst: 0
