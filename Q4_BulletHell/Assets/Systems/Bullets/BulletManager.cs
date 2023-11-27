@@ -27,7 +27,7 @@ namespace BH.Bullets
 
         /*-------------------------------------------------------------------*/
 
-        public void Shoot(Transform origin, Vector3 direction)
+        public void Shoot(Vector3 origin, Vector3 direction)
         {
             Bullet m_newBullet = m_pooling.UseNew();
             m_activeBullet.Add(m_newBullet);

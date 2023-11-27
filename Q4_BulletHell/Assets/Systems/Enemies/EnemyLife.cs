@@ -4,6 +4,8 @@ namespace BH.Enemies
 {
     public class EnemyLife
     {
+        public float m_lifeRatio {  get; private set; }
+
         private int m_currentHp;
         private int m_maxHp;
         private VisualSliderBar m_bossHpBar;
@@ -39,9 +41,12 @@ namespace BH.Enemies
 
         private void UpdtLifeBar()
         {
+            m_lifeRatio = (float)m_currentHp / m_maxHp;
+
             if (m_bossHpBar != null)
             {
-                m_bossHpBar.SetRatio((float)m_currentHp / (float)m_maxHp);
+                //Debug.Log(m_lifeRatio);
+                m_bossHpBar.SetRatio(m_lifeRatio);
             }
         }
     }

@@ -164,4 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ddb3fb24de32834cadf40d9767a2eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_testRatio: 0
+  m_ratio: 1
   m_fillingTrs: {fileID: 7772868930497880029}

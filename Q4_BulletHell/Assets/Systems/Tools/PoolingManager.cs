@@ -50,7 +50,10 @@ namespace BH.Tools
         private void SpawnComponent()
         {
             T component = GameObject.Instantiate(m_prefab, m_parentTrs).GetComponent<T>();
-            component.gameObject.SetActive(false);
+            if (component != null)
+            {
+                component.gameObject.SetActive(false);
+            }
 
             m_pools.Push(component);
         }
