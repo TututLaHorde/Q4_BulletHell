@@ -1,43 +1,45 @@
 using BH.Bullets;
-using BH.Player;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+namespace BH.Player
 {
-    [SerializeField] private float m_bulletIntervale;
-    [SerializeField][Range(0f, 0.8f)] private float m_bulletSpread;
-
-    [SerializeField] private BulletManager m_bulletManager;
-    [SerializeField] private Transform m_shootOrigin;
-
-    private PlayerController m_playerController;
-
-    private void Start()
+    public class PlayerShoot : MonoBehaviour
     {
-        m_playerController = GetComponent<PlayerController>();
+        [SerializeField] private float m_bulletIntervale;
+        [SerializeField][Range(0f, 0.8f)] private float m_bulletSpread;
 
-        StartCoroutine(AutoShoot());
-    }
+        [SerializeField] private BulletManager m_bulletManager;
+        [SerializeField] private Transform m_shootOrigin;
 
-    private IEnumerator AutoShoot()
-    {
-        while (true)
+        private PlayerController m_playerController;
+
+        private void Start()
         {
-            yield return new WaitForSeconds(m_bulletIntervale);
+            m_playerController = GetComponent<PlayerController>();
 
-            Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
-            dir = (dir.normalized + (Vector3)RandomVector2() * m_bulletSpread).normalized;
-
-            m_bulletManager.Shoot(m_shootOrigin.position, dir);
+            StartCoroutine(AutoShoot());
         }
-    }
 
-    private Vector2 RandomVector2()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
+        private IEnumerator AutoShoot()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(m_bulletIntervale);
 
-        return new Vector2(x, y);
+                Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
+                dir = (dir.normalized + (Vector3)RandomVector2() * m_bulletSpread).normalized;
+
+                m_bulletManager.Shoot(m_shootOrigin.position, dir);
+            }
+        }
+
+        private Vector2 RandomVector2()
+        {
+            float x = Random.Range(-1f, 1f);
+            float y = Random.Range(-1f, 1f);
+
+            return new Vector2(x, y);
+        }
     }
 }

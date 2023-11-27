@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BH.Cam
+namespace BH.Game
 {
     public class GameArea : MonoBehaviour
     {
