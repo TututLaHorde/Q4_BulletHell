@@ -24,7 +24,7 @@ namespace BH.Enemies
         private void Start()
         {
             //init life
-            m_life = new EnemyLife(m_maxHp, m_bossHpBar);
+            m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
             //first pattern
             StartNextAtkPattern();

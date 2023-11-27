@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using BH.Player;
+using BH.Game;
 
 namespace BH.Inputs
 {
@@ -22,6 +23,14 @@ namespace BH.Inputs
         {
             Vector3 targetPos = m_cam.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
             m_playerController.MoveTargetChange(targetPos);
+        }
+
+        public void OnPauseGame(InputAction.CallbackContext ctx)
+        {
+            if (ctx.performed)
+            {
+                GameManager.instance.PauseGame();
+            }
         }
     }
 }

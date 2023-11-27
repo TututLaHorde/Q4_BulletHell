@@ -598,7 +598,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 290629939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757197394}
+        m_TargetAssemblyTypeName: BH.Inputs.GameButtonManager, Assembly-CSharp
+        m_MethodName: OnRestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &290629939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1282,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 572530312}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757197394}
+        m_TargetAssemblyTypeName: BH.Inputs.GameButtonManager, Assembly-CSharp
+        m_MethodName: OnRestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &572530312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,7 +1415,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 592393140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757197394}
+        m_TargetAssemblyTypeName: BH.Inputs.GameButtonManager, Assembly-CSharp
+        m_MethodName: OnRestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &592393140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,6 +1750,7 @@ GameObject:
   - component: {fileID: 757197391}
   - component: {fileID: 757197392}
   - component: {fileID: 757197393}
+  - component: {fileID: 757197394}
   m_Layer: 0
   m_Name: InputBtnManager
   m_TagString: Untagged
@@ -1790,11 +1827,39 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fbfc64b1-0dfb-40b3-a674-aaf6cd083ab5
     m_ActionName: InGame/MovementTarget[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 757197392}
+        m_TargetAssemblyTypeName: BH.Inputs.InputManager, Assembly-CSharp
+        m_MethodName: OnPauseGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 59ee6d31-b2e7-4984-91b2-b133496950d6
+    m_ActionName: InGame/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: InGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &757197394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757197390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4941a9947f10a614db299b9fbc3b2054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &774826625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2322,7 +2387,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1106694822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757197394}
+        m_TargetAssemblyTypeName: BH.Inputs.GameButtonManager, Assembly-CSharp
+        m_MethodName: OnBackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1106694822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,7 +2844,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1505379888}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757197394}
+        m_TargetAssemblyTypeName: BH.Inputs.GameButtonManager, Assembly-CSharp
+        m_MethodName: OnContinueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1505379888
 MonoBehaviour:
   m_ObjectHideFlags: 0

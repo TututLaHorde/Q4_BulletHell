@@ -54,6 +54,9 @@ namespace BH.Game
             m_defeatUI.SetActive(false);
             m_pauseUI.SetActive(false);
             m_startingUI.gameObject.SetActive(false);
+
+            //pause game
+            Time.timeScale = 0f;
         }
 
         public void PlayerDie()
@@ -64,6 +67,9 @@ namespace BH.Game
             m_victoryUI.SetActive(false);
             m_pauseUI.SetActive(false);
             m_startingUI.gameObject.SetActive(false);
+
+            //pause game
+            Time.timeScale = 0f;
         }
 
         public void PauseGame()
