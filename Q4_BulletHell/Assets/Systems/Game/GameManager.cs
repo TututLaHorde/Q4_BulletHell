@@ -65,7 +65,7 @@ namespace BH.Game
 
         public void PlayerDie()
         {
-            StartCoroutine(PlayerDeath());
+            //StartCoroutine(PlayerDeath());
         }
 
         public void PauseGame()

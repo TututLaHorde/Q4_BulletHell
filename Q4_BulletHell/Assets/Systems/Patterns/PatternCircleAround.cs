@@ -1,4 +1,5 @@
 using BH.Enemies;
+using BH.Game;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace BH.Patterns
         [Header("One Burst Params")]
         [SerializeField] private float m_rotationEachBurst;
         [SerializeField] private int m_nbBullet;
+        [SerializeField] private float m_shakeAmount;
 
         [Header("If targets the player")]
         [SerializeField] private Transform m_playerTrs;
@@ -47,25 +49,32 @@ namespace BH.Patterns
                 LookToTarget(m_enemy.transform, m_playerTrs.position, Vector2.right);
             }
 
-            //shoots
-            float angleBetweenBullet = m_angleOffset;
-
-            if (m_nbBullet > 1)
+            //SHOOT
             {
-                float angleOffset = Mathf.Clamp(m_angleOffset, 0, 360f - (360f / m_nbBullet));
-                angleBetweenBullet = angleOffset / (m_nbBullet - 1);
+                float angleBetweenBullet = m_angleOffset;
+
+                //fix bullet distribution
+                if (m_nbBullet > 1)
+                {
+                    float angleOffset = Mathf.Clamp(m_angleOffset, 0, 360f - (360f / m_nbBullet));
+                    angleBetweenBullet = angleOffset / (m_nbBullet - 1);
+                }
+
+                //bullet distribution
+                for (int i = 0; i < m_nbBullet; i++)
+                {
+                    float radians = (m_shooterTrs.rotation.eulerAngles.z + m_startAngle + angleBetweenBullet * i) * Mathf.Deg2Rad;
+                    Vector3 dir = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
+
+
+                    Vector3 origin = m_shooterTrs.position + dir * m_distFromCenter;
+
+                    m_bulletManager.Shoot(origin, dir);
+                }
             }
 
-            for (int i = 0; i < m_nbBullet; i++)
-            {
-                float radians = (m_shooterTrs.rotation.eulerAngles.z + m_startAngle + angleBetweenBullet * i) * Mathf.Deg2Rad;
-                Vector3 dir = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
-
-
-                Vector3 origin = m_shooterTrs.position + dir * m_distFromCenter;
-
-                m_bulletManager.Shoot(origin, dir);
-            }
+            //screen shake
+            ScreenShake.instance.m_amount += m_shakeAmount;
 
 
             //changements after shoot

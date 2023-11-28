@@ -54,6 +54,7 @@ MonoBehaviour:
   m_distFromCenter: 2
   m_rotationEachBurst: 5
   m_nbBullet: 8
+  m_shakeAmount: 0
   m_playerTrs: {fileID: 0}
 --- !u!1 &2037917467315904197
 GameObject:
@@ -487,6 +488,7 @@ MonoBehaviour:
   m_distFromCenter: 2
   m_rotationEachBurst: 0
   m_nbBullet: 5
+  m_shakeAmount: 0.2
   m_playerTrs: {fileID: 0}
 --- !u!1 &6645057439421150604
 GameObject:
@@ -542,6 +544,7 @@ MonoBehaviour:
   m_distFromCenter: 2
   m_rotationEachBurst: -5
   m_nbBullet: 8
+  m_shakeAmount: 0
   m_playerTrs: {fileID: 0}
 --- !u!1 &7359453039195517527
 GameObject:
