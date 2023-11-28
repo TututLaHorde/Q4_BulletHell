@@ -1,5 +1,6 @@
 using UnityEngine;
 using BH.Enemies;
+using BH.Game;
 
 namespace BH.Player
 {
@@ -7,6 +8,8 @@ namespace BH.Player
 
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController instance;
+
         [Header("Enemies")]
         [SerializeField] private EnemiesManager m_enemiesManager;
         public Transform m_enemyTrs { get; private set; }
@@ -14,16 +17,31 @@ namespace BH.Player
         [Header("Explosion")]
         [SerializeField] private GameObject m_explosionParticule;
         [SerializeField] private float m_explosionTime;
+        [SerializeField] private float m_shakeAmount;
 
         //own component
         private PlayerMovement m_playerMovement;
         private Transform m_ownTrs;
 
-        public bool m_isCanAct { get; private set; } = true;
+        public bool m_isAlive { get; private set; } = true;
 
-    /*-------------------------------------------------------------------*/
+        /*-------------------------------------------------------------------*/
 
-    private void Start()
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Debug.Log("There is two PlayerController");
+                Destroy(this);
+                return;
+            }
+        }
+
+        private void Start()
         {
             m_playerMovement = GetComponent<PlayerMovement>();
             m_ownTrs = transform;
@@ -45,8 +63,9 @@ namespace BH.Player
 
         public float DeathExplosion()
         {
-            m_isCanAct = false;
+            m_isAlive = false;
             m_explosionParticule.SetActive(true);
+            ScreenShake.instance.m_amount += m_shakeAmount;
 
             return m_explosionTime;
         }

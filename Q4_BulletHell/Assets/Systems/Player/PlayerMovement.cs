@@ -33,7 +33,7 @@ namespace BH.Player
 
         private void MoveToTarget()
         {
-            if (!m_playerController.m_isCanAct)
+            if (!m_playerController.m_isAlive)
             {
                 return;
             }

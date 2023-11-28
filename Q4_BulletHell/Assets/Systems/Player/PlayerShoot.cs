@@ -27,7 +27,7 @@ namespace BH.Player
             {
                 yield return new WaitForSeconds(m_bulletIntervale);
 
-                if (m_playerController != null && m_playerController.m_isCanAct) 
+                if (m_playerController != null && m_playerController.m_isAlive) 
                 {
                     //Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
                     Vector3 dir = Vector3.right;

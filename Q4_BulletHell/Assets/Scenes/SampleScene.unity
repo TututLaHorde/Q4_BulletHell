@@ -1180,11 +1180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prefab: {fileID: 4732021687909735783, guid: a977323540a4e4444948f476af8249b7, type: 3}
   m_nbPreAllocated: 400
---- !u!1 &460118345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 960917233632744751, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-  m_PrefabInstance: {fileID: 701061502}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470386182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,17 +1661,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 603853117}
     - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_explosionTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_enemiesManager
       value: 
       objectReference: {fileID: 1150103684}
-    - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_explosionParticule
-      value: 
-      objectReference: {fileID: 460118345}
     - target: {fileID: 8346168047922510911, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3914,6 +3901,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345159, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345159, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345159, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345159, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345159, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345159, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522584376369345162, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1555678669668561211, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_playerTrs
       value: 
@@ -3928,12 +3943,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_maxHp
-      value: 5000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bossHpBar
       value: 
       objectReference: {fileID: 2001653761}
+    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_explosionTime
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_atkPatterns.Array.data[7]
       value: 

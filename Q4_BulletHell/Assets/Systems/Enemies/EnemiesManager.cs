@@ -24,24 +24,25 @@ namespace BH.Enemies
         {
             if (m_enemies.Contains(enemy))
             {
-                //kill the enemy
-                enemy.gameObject.SetActive(false);
-
-                //check if one enemy still alive
-                bool allEnemyAreDead = true;
+                //count the alive enemies
+                int nbAliveEnemies = 0;
                 foreach (var en in m_enemies)
                 {
                     if (en.gameObject.activeSelf)
                     {
-                        allEnemyAreDead = false;
-                        break;
+                        nbAliveEnemies++;
                     }
                 }
 
-                //player win if all enemies are dead
-                if (allEnemyAreDead)
+                //player win if the last enemy die
+                if (nbAliveEnemies == 1)
                 {
                     GameManager.instance.LastEnemyDie();
+                }
+                else
+                {
+                    //kill the enemy
+                    enemy.gameObject.SetActive(false);
                 }
             }
         }

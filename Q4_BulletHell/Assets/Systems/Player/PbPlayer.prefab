@@ -51,6 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemiesManager: {fileID: 0}
+  m_explosionParticule: {fileID: 960917233632744751}
+  m_explosionTime: 1.5
+  m_shakeAmount: 0.3
 --- !u!114 &8847724538768059257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,5 +661,10 @@ PrefabInstance:
 --- !u!4 &960917233632744738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417761080263594748, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
+  m_PrefabInstance: {fileID: 619792914501027806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &960917233632744751 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 417761080263594737, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
   m_PrefabInstance: {fileID: 619792914501027806}
   m_PrefabAsset: {fileID: 0}
