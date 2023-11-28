@@ -25,10 +25,11 @@ namespace BH.Enemies
         {
             m_currentHp -= damage;
 
+            //Death
             if (m_currentHp < 0)
             {
                 m_currentHp = 0;
-                m_enemy.GetComponentInParent<EnemiesManager>().AnEnemyDie(m_enemy);
+                m_enemy.Die();
             }
 
             UpdtLifeBar();

@@ -5,6 +5,8 @@ using System.Collections;
 using BH.Tools;
 using BH.Patterns;
 using BH.Bullets;
+using BH.Game;
+using BH.Player;
 
 namespace BH.Enemies
 {
@@ -20,6 +22,13 @@ namespace BH.Enemies
         [SerializeField] private List<AtkPattern> m_atkPatterns = new();
         private int m_patternIndex;
 
+        [Header("Explosion")]
+        [SerializeField] private GameObject m_explosionParticule;
+        [SerializeField] private float m_explosionTime;
+        [SerializeField] private float m_shakeAmount;
+
+        private bool m_isAlive = true;
+
         /*-------------------------------------------------------------------*/
 
         private void Start()
@@ -28,23 +37,31 @@ namespace BH.Enemies
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
             //first pattern
-            StartNextAtkPattern();
+            StartCoroutine(WaitBetweenPattern());
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision == null) { return; }
 
-            //collid with enemy
+            //collid with player or player bullet
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 //enemy takes dmg
-                if (collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
+                if (PlayerController.instance.m_isAlive && collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
                 {
-                    Debug.Log("touch");
                     m_life.TakeDamage(playerBullet.m_damage);
                     playerBullet.m_isCollidWithEnemy = true;
                 }
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            //player die
+            if (m_isAlive && collision.gameObject.TryGetComponent(out PlayerCollision player))
+            {
+                GameManager.instance.PlayerDie();
             }
         }
 
@@ -55,15 +72,30 @@ namespace BH.Enemies
             StartCoroutine(WaitBetweenPattern());
         }
 
+        public void Die()
+        {
+            if (m_isAlive)
+            {
+                StopAllCoroutines();
+                StartCoroutine(DeathExplosion());
+            }
+        }
+
         /*-------------------------------------------------------------------*/
 
         private void StartNextAtkPattern()
         {
+            if (!m_isAlive)
+            {  return; }
+
             //next atk pattern
             if (m_patternIndex < m_atkPatterns.Count)
             {
-                m_atkPatterns[m_patternIndex].StartAtkPattern(this);
-                m_patternIndex++;
+                if (m_atkPatterns[m_patternIndex] != null)
+                {
+                    m_atkPatterns[m_patternIndex].StartAtkPattern(this);
+                    m_patternIndex++;
+                }
             }
             //loop when reach the end
             else if (m_atkPatterns.Count != 0)
@@ -106,6 +138,17 @@ namespace BH.Enemies
             yield return new WaitForSeconds(waitingTime);
 
             StartNextAtkPattern();
+        }
+
+        private IEnumerator DeathExplosion()
+        {
+            m_isAlive = false;
+            m_explosionParticule.SetActive(true);
+            ScreenShake.instance.m_amount += m_shakeAmount;
+
+            yield return new WaitForSeconds(m_explosionTime);
+
+            GetComponentInParent<EnemiesManager>().AnEnemyDie(this);
         }
     }
 }

@@ -1,4 +1,5 @@
 using BH.MenusUI;
+using BH.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -18,6 +19,9 @@ namespace BH.Game
 
         [Header("Pause")]
         [SerializeField] private float m_timeAfterPause;
+
+        [Header("Others")]
+        [SerializeField] private PlayerController m_player;
 
         /*-------------------------------------------------------------------*/
 
@@ -61,15 +65,10 @@ namespace BH.Game
 
         public void PlayerDie()
         {
-            //Active UI
-            m_defeatUI.SetActive(true);
-
-            m_victoryUI.SetActive(false);
-            m_pauseUI.SetActive(false);
-            m_startingUI.gameObject.SetActive(false);
-
-            //pause game
-            Time.timeScale = 0f;
+            if (m_player.m_isAlive)
+            {
+                StartCoroutine(PlayerDeath());
+            }
         }
 
         public void PauseGame()
@@ -115,6 +114,21 @@ namespace BH.Game
 
             //Remove UI
             m_startingUI.gameObject.SetActive(false);
+        }
+
+        private IEnumerator PlayerDeath()
+        {
+            yield return new WaitForSeconds(m_player.DeathExplosion());
+
+            //Active UI
+            m_defeatUI.SetActive(true);
+
+            m_victoryUI.SetActive(false);
+            m_pauseUI.SetActive(false);
+            m_startingUI.gameObject.SetActive(false);
+
+            //pause game
+            Time.timeScale = 0f;
         }
     }
 }

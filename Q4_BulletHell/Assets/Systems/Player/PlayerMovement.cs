@@ -33,7 +33,12 @@ namespace BH.Player
 
         private void MoveToTarget()
         {
-            float speed = m_speed;
+            if (!m_playerController.m_isAlive)
+            {
+                return;
+            }
+
+                float speed = m_speed;
             Vector2 direction = m_targetPos - m_ownTrs.position;
 
             //too close of the target
