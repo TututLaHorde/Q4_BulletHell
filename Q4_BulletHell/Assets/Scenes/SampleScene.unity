@@ -1584,26 +1584,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PbPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 960917233632744751, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1453326377146418263, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1504548135375243777, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2010005843484499200, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048892112106000787, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2362423771407961886, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.1666517
@@ -1648,26 +1628,10 @@ PrefabInstance:
       propertyPath: m_bulletManager
       value: 
       objectReference: {fileID: 1155502347}
-    - target: {fileID: 3336887975976929855, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6044570837410290196, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_enemyTrs
-      value: 
-      objectReference: {fileID: 603853117}
     - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_enemiesManager
       value: 
       objectReference: {fileID: 1150103684}
-    - target: {fileID: 8346168047922510911, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2305,6 +2269,7 @@ GameObject:
   - component: {fileID: 928664017}
   - component: {fileID: 928664019}
   - component: {fileID: 928664018}
+  - component: {fileID: 928664020}
   m_Layer: 0
   m_Name: MusicsManager
   m_TagString: Untagged
@@ -2441,6 +2406,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &928664020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928664016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41584be3599a2b1439d79f6b82a0f25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983120395
 GameObject:
   m_ObjectHideFlags: 0

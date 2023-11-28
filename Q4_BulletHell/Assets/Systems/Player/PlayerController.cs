@@ -1,6 +1,7 @@
 using UnityEngine;
 using BH.Enemies;
 using BH.Game;
+using BH.Music;
 
 namespace BH.Player
 {
@@ -17,6 +18,7 @@ namespace BH.Player
         [Header("Explosion")]
         [SerializeField] private GameObject m_explosionParticule;
         [SerializeField] private float m_explosionTime;
+        [SerializeField] private AudioClip m_explosionSound;
         [SerializeField] private float m_shakeAmount;
 
         //own component
@@ -64,6 +66,8 @@ namespace BH.Player
         public float DeathExplosion()
         {
             m_isAlive = false;
+
+            SfxManager.instance.PlaySfx(m_explosionSound);
             m_explosionParticule.SetActive(true);
             ScreenShake.instance.m_amount += m_shakeAmount;
 
