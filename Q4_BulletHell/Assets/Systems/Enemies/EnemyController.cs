@@ -28,7 +28,7 @@ namespace BH.Enemies
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
             //first pattern
-            StartNextAtkPattern();
+            StartCoroutine(WaitBetweenPattern());
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +41,6 @@ namespace BH.Enemies
                 //enemy takes dmg
                 if (collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
                 {
-                    Debug.Log("touch");
                     m_life.TakeDamage(playerBullet.m_damage);
                     playerBullet.m_isCollidWithEnemy = true;
                 }
@@ -62,8 +61,11 @@ namespace BH.Enemies
             //next atk pattern
             if (m_patternIndex < m_atkPatterns.Count)
             {
-                m_atkPatterns[m_patternIndex].StartAtkPattern(this);
-                m_patternIndex++;
+                if (m_atkPatterns[m_patternIndex] != null)
+                {
+                    m_atkPatterns[m_patternIndex].StartAtkPattern(this);
+                    m_patternIndex++;
+                }
             }
             //loop when reach the end
             else if (m_atkPatterns.Count != 0)
