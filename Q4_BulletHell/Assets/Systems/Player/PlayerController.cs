@@ -13,6 +13,8 @@ namespace BH.Player
         private PlayerMovement m_playerMovement;
         private Transform m_ownTrs;
 
+        /*-------------------------------------------------------------------*/
+
         private void Start()
         {
             m_playerMovement = GetComponent<PlayerMovement>();
@@ -26,10 +28,14 @@ namespace BH.Player
             SetClosestEnemyTrs();
         }
 
+        /*-------------------------------------------------------------------*/
+
         public void MoveTargetChange(Vector3 targetPos)
         {
             m_playerMovement.m_targetPos = targetPos;
         }
+
+        /*-------------------------------------------------------------------*/
 
         private void SetClosestEnemyTrs()
         {

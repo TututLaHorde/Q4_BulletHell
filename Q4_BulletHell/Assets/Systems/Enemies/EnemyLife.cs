@@ -9,10 +9,12 @@ namespace BH.Enemies
         private int m_currentHp;
         private int m_maxHp;
         private VisualSliderBar m_bossHpBar;
+        private EnemyController m_enemy;
 
-        public EnemyLife(int maxHp, VisualSliderBar hpBar)
+        public EnemyLife(int maxHp, VisualSliderBar hpBar, EnemyController enemy)
         { 
             m_bossHpBar = hpBar;
+            m_enemy = enemy;
             SetMaxHp(maxHp);
             UpdtLifeBar();
         }
@@ -26,6 +28,7 @@ namespace BH.Enemies
             if (m_currentHp < 0)
             {
                 m_currentHp = 0;
+                m_enemy.GetComponentInParent<EnemiesManager>().AnEnemyDie(m_enemy);
             }
 
             UpdtLifeBar();

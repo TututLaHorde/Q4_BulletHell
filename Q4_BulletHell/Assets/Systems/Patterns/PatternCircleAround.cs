@@ -1,8 +1,6 @@
 using BH.Enemies;
-using BH.Player;
 using System;
 using System.Collections;
-using UnityEditor.UI;
 using UnityEngine;
 
 namespace BH.Patterns

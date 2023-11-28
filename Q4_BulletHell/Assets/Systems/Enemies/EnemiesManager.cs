@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using BH.Game;
 
 namespace BH.Enemies
 {
@@ -15,6 +16,32 @@ namespace BH.Enemies
                 if (transform.GetChild(i).TryGetComponent(out EnemyController enemy))
                 {
                     m_enemies.Add(enemy);
+                }
+            }
+        }
+
+        public void AnEnemyDie(EnemyController enemy)
+        {
+            if (m_enemies.Contains(enemy))
+            {
+                //kill the enemy
+                enemy.gameObject.SetActive(false);
+
+                //check if one enemy still alive
+                bool allEnemyAreDead = true;
+                foreach (var en in m_enemies)
+                {
+                    if (en.gameObject.activeSelf)
+                    {
+                        allEnemyAreDead = false;
+                        break;
+                    }
+                }
+
+                //player win if all enemies are dead
+                if (allEnemyAreDead)
+                {
+                    GameManager.instance.LastEnemyDie();
                 }
             }
         }

@@ -5,27 +5,8 @@ namespace BH.Bullets
 {
     public class PlayerBullet : Bullet
     {
-        [SerializeField] private int m_dammage;
-        private bool m_isCollidWithEnemy;
-
-        /*-------------------------------------------------------------------*/
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision == null) { return; }
-
-            //collid with enemy
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-            {
-                m_isCollidWithEnemy = true;
-
-                //enemy takes dmg
-                if (collision.gameObject.TryGetComponent(out EnemyController enemyController))
-                {
-                    enemyController.m_life.TakeDamage(m_dammage);
-                }
-            }
-        }
+        public int m_damage;
+        public bool m_isCollidWithEnemy;
 
         /*-------------------------------------------------------------------*/
 
