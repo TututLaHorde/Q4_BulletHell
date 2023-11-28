@@ -832,6 +832,7 @@ MonoBehaviour:
   m_pauseUI: {fileID: 226014037}
   m_startingUI: {fileID: 1608221973}
   m_timeAfterPause: 3
+  m_player: {fileID: 701061503}
 --- !u!1 &304641288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1180,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_prefab: {fileID: 4732021687909735783, guid: a977323540a4e4444948f476af8249b7, type: 3}
   m_nbPreAllocated: 400
+--- !u!1 &460118345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 960917233632744751, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
+  m_PrefabInstance: {fileID: 701061502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470386182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,6 +1572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PbPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 960917233632744751, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1453326377146418263, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1630,14 +1640,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6044570837410290196, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_enemyTrs
       value: 
       objectReference: {fileID: 603853117}
     - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
+      propertyPath: m_explosionTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_enemiesManager
       value: 
       objectReference: {fileID: 1150103684}
+    - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
+      propertyPath: m_explosionParticule
+      value: 
+      objectReference: {fileID: 460118345}
     - target: {fileID: 8346168047922510911, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3883,18 +3905,18 @@ PrefabInstance:
       propertyPath: m_bulletManager
       value: 
       objectReference: {fileID: 169878327}
+    - target: {fileID: 3009972444673412998, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_maxHp
-      value: 1000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bossHpBar
       value: 
       objectReference: {fileID: 2001653761}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[1]
-      value: 
-      objectReference: {fileID: 1259897445}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_atkPatterns.Array.data[7]
       value: 

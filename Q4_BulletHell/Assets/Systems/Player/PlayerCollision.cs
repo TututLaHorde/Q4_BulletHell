@@ -16,7 +16,6 @@ namespace BH.Player
                 //enemy takes dmg
                 if (collision.transform.TryGetComponent(out Bullet bullet))
                 {
-                    Debug.Log("Player is dead by " + bullet);
                     GameManager.instance.PlayerDie();
                 }
             }

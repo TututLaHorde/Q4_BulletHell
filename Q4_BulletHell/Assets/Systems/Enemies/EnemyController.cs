@@ -5,6 +5,8 @@ using System.Collections;
 using BH.Tools;
 using BH.Patterns;
 using BH.Bullets;
+using BH.Game;
+using BH.Player;
 
 namespace BH.Enemies
 {
@@ -35,7 +37,7 @@ namespace BH.Enemies
         {
             if (collision == null) { return; }
 
-            //collid with enemy
+            //collid with player or player bullet
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 //enemy takes dmg
@@ -44,6 +46,15 @@ namespace BH.Enemies
                     m_life.TakeDamage(playerBullet.m_damage);
                     playerBullet.m_isCollidWithEnemy = true;
                 }
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            //player die
+            if (collision.gameObject.TryGetComponent(out PlayerCollision player))
+            {
+                GameManager.instance.PlayerDie();
             }
         }
 
