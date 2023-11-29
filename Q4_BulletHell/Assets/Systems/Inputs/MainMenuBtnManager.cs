@@ -5,6 +5,8 @@ namespace BH.Inputs
 {
     public class MainMenuBtnManager : MonoBehaviour
     {
+        [SerializeField] private Animator m_AnimMainMenu;
+
         public void OnPlayGame()
         {
             SceneManager.LoadScene("SampleScene");
@@ -18,7 +20,12 @@ namespace BH.Inputs
 
         public void OnCredits()
         {
-            Debug.Log("Credits");
+            m_AnimMainMenu.SetTrigger("MainToCredit");
+        }
+
+        public void OnBack()
+        {
+            m_AnimMainMenu.SetTrigger("CreditToMain");
         }
     }
 }
