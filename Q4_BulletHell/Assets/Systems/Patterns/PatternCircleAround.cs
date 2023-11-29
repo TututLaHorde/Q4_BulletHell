@@ -2,6 +2,7 @@ using BH.Enemies;
 using BH.Game;
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace BH.Patterns
@@ -20,6 +21,11 @@ namespace BH.Patterns
 
         [Header("If targets the player")]
         [SerializeField] private Transform m_playerTrs;
+
+        [Header("Audio")]
+        [SerializeField] private AudioClip m_shootClip;
+        [SerializeField] private AudioSource m_shootSource;
+        [SerializeField][Range(0f, 1f)] private float m_volume;
 
         private EnemyController m_enemy;
 
@@ -49,33 +55,14 @@ namespace BH.Patterns
                 LookToTarget(m_enemy.transform, m_playerTrs.position, Vector2.right);
             }
 
-            //SHOOT
-            {
-                float angleBetweenBullet = m_angleOffset;
-
-                //fix bullet distribution
-                if (m_nbBullet > 1)
-                {
-                    float angleOffset = Mathf.Clamp(m_angleOffset, 0, 360f - (360f / m_nbBullet));
-                    angleBetweenBullet = angleOffset / (m_nbBullet - 1);
-                }
-
-                //bullet distribution
-                for (int i = 0; i < m_nbBullet; i++)
-                {
-                    float radians = (m_shooterTrs.rotation.eulerAngles.z + m_startAngle + angleBetweenBullet * i) * Mathf.Deg2Rad;
-                    Vector3 dir = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
-
-
-                    Vector3 origin = m_shooterTrs.position + dir * m_distFromCenter;
-
-                    m_bulletManager.Shoot(origin, dir);
-                }
-            }
+            Shoot();
 
             //screen shake
             ScreenShake.instance.m_amount += m_shakeAmount;
 
+            //sfx
+            if (m_shootSource != null && m_shootClip != null)
+                m_shootSource.PlayOneShot(m_shootClip, m_volume);
 
             //changements after shoot
             Vector3 newRot = m_shooterTrs.rotation.eulerAngles + Vector3.forward * m_rotationEachBurst;
@@ -83,6 +70,29 @@ namespace BH.Patterns
         }
 
         /*-------------------------------------------------------------------*/
+        private void Shoot()
+        {
+            float angleBetweenBullet = m_angleOffset;
+
+            //fix bullet distribution
+            if (m_nbBullet > 1)
+            {
+                float angleOffset = Mathf.Clamp(m_angleOffset, 0, 360f - (360f / m_nbBullet));
+                angleBetweenBullet = angleOffset / (m_nbBullet - 1);
+            }
+
+            //bullet distribution
+            for (int i = 0; i < m_nbBullet; i++)
+            {
+                float radians = (m_shooterTrs.rotation.eulerAngles.z + m_startAngle + angleBetweenBullet * i) * Mathf.Deg2Rad;
+                Vector3 dir = new Vector3(Mathf.Cos(radians), Mathf.Sin(radians));
+
+
+                Vector3 origin = m_shooterTrs.position + dir * m_distFromCenter;
+
+                m_bulletManager.Shoot(origin, dir);
+            }
+        }
 
         private IEnumerator BurstManagement()
         {

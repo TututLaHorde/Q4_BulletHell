@@ -7,6 +7,7 @@ using BH.Patterns;
 using BH.Bullets;
 using BH.Game;
 using BH.Player;
+using BH.Music;
 
 namespace BH.Enemies
 {
@@ -27,6 +28,11 @@ namespace BH.Enemies
         [SerializeField] private float m_explosionTime;
         [SerializeField] private float m_shakeAmount;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip m_clipExplosion;
+        [SerializeField] private AudioClip m_clipImpact;
+        [SerializeField][Range(0f, 1f)] private float m_impactVolume;
+
         private bool m_isAlive = true;
 
         /*-------------------------------------------------------------------*/
@@ -44,15 +50,17 @@ namespace BH.Enemies
         {
             if (collision == null) { return; }
 
-            //collid with player or player bullet
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            //collid with player bullet
+            if (m_isAlive &&
+                collision.gameObject.layer == LayerMask.NameToLayer("Player") &&
+                PlayerController.instance.m_isAlive && collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
             {
                 //enemy takes dmg
-                if (PlayerController.instance.m_isAlive && collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
-                {
-                    m_life.TakeDamage(playerBullet.m_damage);
-                    playerBullet.m_isCollidWithEnemy = true;
-                }
+                m_life.TakeDamage(playerBullet.m_damage);
+                SfxManager.instance.PlayMultipleSfx(m_clipImpact, m_impactVolume);
+
+                //for bullet pooling
+                playerBullet.m_isCollidWithEnemy = true;
             }
         }
 
@@ -143,6 +151,9 @@ namespace BH.Enemies
         private IEnumerator DeathExplosion()
         {
             m_isAlive = false;
+
+            //sfx, animation, screen shake
+            SfxManager.instance.PlaySfx(m_clipExplosion);
             m_explosionParticule.SetActive(true);
             ScreenShake.instance.m_amount += m_shakeAmount;
 

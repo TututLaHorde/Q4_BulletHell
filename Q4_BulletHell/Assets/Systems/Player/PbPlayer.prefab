@@ -54,6 +54,7 @@ MonoBehaviour:
   m_explosionParticule: {fileID: 960917233632744751}
   m_explosionTime: 1.5
   m_shakeAmount: 0.3
+  m_clipExplosion: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
 --- !u!114 &8847724538768059257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1396138454796565610}
   - component: {fileID: 4722318312315259174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1798919506825895275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletOrigin
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -209,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3739413589268750097}
   - component: {fileID: 6680037841547671501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8172117452897650701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +330,7 @@ GameObject:
   - component: {fileID: 6044570837410290196}
   - component: {fileID: 5422507569183089487}
   - component: {fileID: 3404160048418216882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417761080263594737, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 417761080263594738, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
       propertyPath: m_SortingOrder
