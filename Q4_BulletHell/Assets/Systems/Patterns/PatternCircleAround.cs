@@ -134,14 +134,20 @@ namespace BH.Patterns
             float angle = Vector2.SignedAngle(originalLookingDir, direction);
 
             //fix rotation
-            if (targetPos.y > 0)
+            m_previousRotation.z %= 360;
+            m_shooterTrs.rotation = Quaternion.Euler(m_previousRotation);
+
+            angle -= m_previousRotation.z;
+            if (targetPos.y < 0)
             {
-                angle -= m_previousRotation.z;
+                angle += 360;
             }
-            else
+            if (Mathf.Abs(angle) > 180)
             {
-                angle -= m_previousRotation.z + 360;
+                float signe = (angle / Mathf.Abs(angle));
+                angle = -signe * (360 - (Mathf.Abs(angle)));
             }
+
 
             //set new rotation (lerp with ratio)
             Vector3 newRot = m_previousRotation + Vector3.forward * angle * ratio;
