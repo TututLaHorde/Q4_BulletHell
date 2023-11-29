@@ -7,6 +7,11 @@ namespace BH.Inputs
     {
         [SerializeField] private Animator m_AnimMainMenu;
 
+        private void Awake()
+        {
+            Time.timeScale = 1f;
+        }
+
         public void OnPlayGame()
         {
             SceneManager.LoadScene("SampleScene");

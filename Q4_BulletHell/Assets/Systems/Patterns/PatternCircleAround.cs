@@ -2,7 +2,6 @@ using BH.Enemies;
 using BH.Game;
 using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace BH.Patterns
