@@ -54,7 +54,7 @@ MonoBehaviour:
   m_explosionParticule: {fileID: 960917233632744751}
   m_explosionTime: 1.5
   m_shakeAmount: 0.3
-  m_clipExplosion: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
+  m_clipExplosion: {fileID: 8300000, guid: 7cbd5a7ddb175ab46a5d94fba271e7e1, type: 3}
 --- !u!114 &8847724538768059257
 MonoBehaviour:
   m_ObjectHideFlags: 0

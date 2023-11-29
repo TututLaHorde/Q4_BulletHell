@@ -1782,6 +1782,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1155502347}
     - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
+      propertyPath: m_clipExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
+    - target: {fileID: 7712610844282046606, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_enemiesManager
       value: 
       objectReference: {fileID: 1150103684}
@@ -2669,11 +2673,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_musics:
-  - {fileID: 8300000, guid: 998c0a57629d27f4b83d5774dd81f1b2, type: 3}
+  - {fileID: 8300000, guid: a9d55d1166d3c7b4c86b45421075017e, type: 3}
+  - {fileID: 8300000, guid: c346a11c73d0f4d42ae9f500e6f20a2d, type: 3}
   - {fileID: 8300000, guid: e05bc218166bb094f99c0066b9bf1ae1, type: 3}
   - {fileID: 8300000, guid: b27f219e4806a5144af6b13f60422ffe, type: 3}
   - {fileID: 8300000, guid: 95e820a8be4e11040b70e0040ecf27dd, type: 3}
-  - {fileID: 8300000, guid: 62d988317a71bb547a24fffbcd728ac4, type: 3}
 --- !u!82 &928664019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5152,6 +5156,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 701061506}
     - target: {fileID: 1555678669668561211, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_shootClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
+    - target: {fileID: 1555678669668561211, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bulletManager
       value: 
       objectReference: {fileID: 169878327}
@@ -5163,6 +5171,10 @@ PrefabInstance:
       propertyPath: m_clipTakeDmg
       value: 
       objectReference: {fileID: 8300000, guid: a1835948edbe37345a19a90f5dea5211, type: 3}
+    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_clipExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_atkPatterns.Array.data[7]
       value: 

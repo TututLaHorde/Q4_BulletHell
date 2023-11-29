@@ -354,7 +354,7 @@ MonoBehaviour:
   m_explosionParticule: {fileID: 1522584376369345162}
   m_explosionTime: 1.5
   m_shakeAmount: 1
-  m_clipExplosion: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
+  m_clipExplosion: {fileID: 8300000, guid: 7cbd5a7ddb175ab46a5d94fba271e7e1, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
   m_impactVolume: 0.07
 --- !u!1 &6397044100769280312
