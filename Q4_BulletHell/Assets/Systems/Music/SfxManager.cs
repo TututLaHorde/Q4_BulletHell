@@ -6,8 +6,11 @@ namespace BH.Music
     {
         public static SfxManager instance;
 
+        [SerializeField] private AudioSource m_source;
+
         private void Awake()
         {
+            //singelton
             if (instance == null)
             {
                 instance = this;
@@ -22,10 +25,21 @@ namespace BH.Music
 
         public void PlaySfx(AudioClip clip)
         {
-            AudioSource source = gameObject.AddComponent<AudioSource>();
-            source.clip = clip;
-            source.Play();
-            Destroy(source, clip.length);
+            if (clip != null)
+            {
+                AudioSource source = gameObject.AddComponent<AudioSource>();
+                source.clip = clip;
+                source.Play();
+                Destroy(source, clip.length);
+            }
+        }
+
+        public void PlayMultipleSfx(AudioClip clip, float volume = 1f)
+        {
+            if (clip != null && m_source != null)
+            {
+                m_source.PlayOneShot(clip, volume);
+            }
         }
     }
 }

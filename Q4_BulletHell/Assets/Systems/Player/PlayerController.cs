@@ -18,8 +18,9 @@ namespace BH.Player
         [Header("Explosion")]
         [SerializeField] private GameObject m_explosionParticule;
         [SerializeField] private float m_explosionTime;
-        [SerializeField] private AudioClip m_explosionSound;
         [SerializeField] private float m_shakeAmount;
+
+        [SerializeField] private AudioClip m_clipExplosion;
 
         //own component
         private PlayerMovement m_playerMovement;
@@ -45,14 +46,17 @@ namespace BH.Player
 
         private void Start()
         {
+            //get own component
             m_playerMovement = GetComponent<PlayerMovement>();
             m_ownTrs = transform;
 
+            //find the closest enemy
             SetClosestEnemyTrs();
         }
 
         private void FixedUpdate()
         {
+            //find the closest enemy
             SetClosestEnemyTrs();
         }
 
@@ -67,7 +71,8 @@ namespace BH.Player
         {
             m_isAlive = false;
 
-            SfxManager.instance.PlaySfx(m_explosionSound);
+            //sfx, animation, screen shake
+            SfxManager.instance.PlaySfx(m_clipExplosion);
             m_explosionParticule.SetActive(true);
             ScreenShake.instance.m_amount += m_shakeAmount;
 

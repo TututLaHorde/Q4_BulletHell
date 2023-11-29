@@ -1,4 +1,5 @@
 using BH.MenusUI;
+using BH.Music;
 using BH.Player;
 using System.Collections;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace BH.Game
 
         [Header("Others")]
         [SerializeField] private PlayerController m_player;
+
+        [Header("Audio")]
+        [SerializeField] private float m_musicStopTime = 1.5f;
+        [SerializeField] private AudioClip m_clipWin;
+        [SerializeField] private AudioClip m_clipLose;
 
         /*-------------------------------------------------------------------*/
 
@@ -59,8 +65,14 @@ namespace BH.Game
             m_pauseUI.SetActive(false);
             m_startingUI.gameObject.SetActive(false);
 
+            //play sound
+            SfxManager.instance.PlaySfx(m_clipWin);
+            MusicManager.instance.SmoothStopMusic(0.2f);
+
             //pause game
             Time.timeScale = 0f;
+
+            
         }
 
         public void PlayerDie()
@@ -127,8 +139,24 @@ namespace BH.Game
             m_pauseUI.SetActive(false);
             m_startingUI.gameObject.SetActive(false);
 
+            //stop music
+            MusicManager.instance.SmoothStopMusic(m_musicStopTime);
+
             //pause game
             Time.timeScale = 0f;
+
+            //play sound
+            yield return new WaitForSecondsRealtime(m_musicStopTime);
+            SfxManager.instance.PlaySfx(m_clipLose);
+        }
+
+
+
+        private IEnumerator PlayWinSfx()
+        {
+            //play sound
+            yield return new WaitForSecondsRealtime(m_musicStopTime);
+            SfxManager.instance.PlaySfx(m_clipWin);
         }
     }
 }
