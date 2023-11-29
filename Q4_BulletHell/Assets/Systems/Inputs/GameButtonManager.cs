@@ -13,8 +13,7 @@ namespace BH.Inputs
 
         public void OnBackToMenu()
         {
-            Application.Quit();
-            Debug.Log("Quit");
+            SceneManager.LoadScene("MainMenu");
         }
 
         public void OnContinueGame()
