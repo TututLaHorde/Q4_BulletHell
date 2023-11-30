@@ -6,11 +6,8 @@ namespace BH.Game
     {
         public static GameArea instance;
 
-        [SerializeField] private Transform m_topRightTrs;
-        [SerializeField] private Transform m_bottomLeftTrs;
-
-        private Camera m_cam;
-        private Rect m_areaRect = new();
+        [SerializeField] private float m_radiusPlayerArea;
+        [SerializeField] private float m_radiusBulletArea;
 
         /*-------------------------------------------------------------------*/
 
@@ -28,40 +25,34 @@ namespace BH.Game
             }
         }
 
-        private void Start()
-        {
-            m_cam = Camera.main;
-            ChangeGameArea();
-        }
-
-        //private void OnDrawGizmos()
-        //{
-        //    Gizmos.DrawCube(m_areaRect.center, m_areaRect.size);
-        //}
-
         /*-------------------------------------------------------------------*/
 
-        public void ChangeGameArea()
+        public Vector2 KeepPositionInPlayerArea(Vector2 position)
         {
-            //change 
-            float x = m_bottomLeftTrs.position.x;
-            float y = m_bottomLeftTrs.position.y;
-            float width = m_topRightTrs.position.x - m_bottomLeftTrs.position.x;
-            float height = m_topRightTrs.position.y - m_bottomLeftTrs.position.y;
-            m_areaRect.size = m_cam.sensorSize;
-            m_areaRect.Set(x, y ,width, height);
-        }
-
-        public Vector2 KeepPositionInArea(Vector2 position)
-        {
-            position.x = Mathf.Clamp(position.x, m_areaRect.x, m_areaRect.x + m_areaRect.width);
-            position.y = Mathf.Clamp(position.y, m_areaRect.y, m_areaRect.y + m_areaRect.height);
+            Vector2 dir = position - (Vector2)transform.position;
+            position = dir.normalized * m_radiusPlayerArea;
             return position;
         }
 
-        public bool IsInGameArea(Vector2 position)
+        public bool IsInPlayerGameArea(Vector2 position)
         {
-            if (m_areaRect.Contains(position))
+            Vector2 ownPos = transform.position;
+            float dist = Vector2.Distance(position, ownPos);
+            if (dist <= m_radiusPlayerArea)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IsInBulletGameArea(Vector2 position)
+        {
+            Vector2 ownPos = transform.position;
+            float dist = Vector2.Distance(position, ownPos);
+            if (dist <= m_radiusBulletArea)
             {
                 return true;
             }

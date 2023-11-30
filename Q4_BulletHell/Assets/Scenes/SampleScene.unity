@@ -1112,8 +1112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9581b1f9dc2edf040bf1a8f475132394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_topRightTrs: {fileID: 1676657498}
-  m_bottomLeftTrs: {fileID: 942467339}
+  m_radiusPlayerArea: 26
+  m_radiusBulletArea: 27
 --- !u!1 &304641288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1621,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1829,11 +1829,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2362423771407961886, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.1666517
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2362423771407961886, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.132961
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 2362423771407961886, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3920,7 +3920,7 @@ Transform:
   m_GameObject: {fileID: 1479316934}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3966,9 +3966,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61bf5f57f8182bd439c84cd30b45945c, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_SortingOrder: 50
+  m_Sprite: {fileID: 21300000, guid: e0e6aadaa8ebefc4ead2289d373fe9b9, type: 3}
+  m_Color: {r: 0.77647066, g: 0.7137255, b: 0.9803922, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

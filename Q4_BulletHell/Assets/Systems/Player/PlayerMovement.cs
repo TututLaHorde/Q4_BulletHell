@@ -55,7 +55,7 @@ namespace BH.Player
 
             direction = direction.normalized;
             Vector2 potentialPos = (Vector2)m_ownTrs.position + direction * speed * Time.deltaTime;
-            if (GameArea.instance.IsInGameArea(potentialPos))
+            if (GameArea.instance.IsInPlayerGameArea(potentialPos))
             {
                 //move to target
                 m_ownTrs.position = potentialPos;
@@ -63,7 +63,7 @@ namespace BH.Player
             else
             {
                 //move to border of the game area
-                m_ownTrs.position = (Vector3)GameArea.instance.KeepPositionInArea(potentialPos);
+                m_ownTrs.position = (Vector3)GameArea.instance.KeepPositionInPlayerArea(potentialPos);
             }
         }
 
