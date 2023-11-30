@@ -8,9 +8,15 @@ using BH.Bullets;
 using BH.Game;
 using BH.Player;
 using BH.Music;
+using UnityEngine.Assertions;
 
 namespace BH.Enemies
 {
+    public enum AtkPatternState
+    {
+        pattern1, pattern2, pattern3,
+    }
+
     public class EnemyController : MonoBehaviour
     {
         [Header("Life")]
@@ -20,8 +26,12 @@ namespace BH.Enemies
         [HideInInspector] public EnemyLife m_life;
 
         [Header("Atk Patterns")]
-        [SerializeField] private List<AtkPattern> m_atkPatterns = new();
-        private int m_patternIndex;
+        [SerializeField] private List<AtkPattern> m_atkPatterns1 = new();
+        [SerializeField] private List<AtkPattern> m_atkPatterns2 = new();
+        [SerializeField] private List<AtkPattern> m_atkPatterns3 = new();
+        private List<AtkPattern> m_atkPatterns;
+        private AtkPatternState m_atkState;
+        private int m_patternIndex = 0;
 
         [Header("Explosion")]
         [SerializeField] private GameObject m_explosionParticule;
@@ -35,6 +45,8 @@ namespace BH.Enemies
 
         private bool m_isAlive = true;
 
+        private CameraFollow m_camFollow;
+
         /*-------------------------------------------------------------------*/
 
         private void Start()
@@ -43,7 +55,12 @@ namespace BH.Enemies
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
             //first pattern
+            m_atkPatterns = m_atkPatterns1;
+            m_atkState = AtkPatternState.pattern1;
             StartNextAtkPattern();
+
+            m_camFollow = Camera.main.GetComponentInParent<CameraFollow>();
+            Assert.IsNotNull(m_camFollow);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +94,7 @@ namespace BH.Enemies
 
         public void FinishAnAtkPattern()
         {
+            ChangeAtkPatternState();
             StartCoroutine(WaitBetweenPattern());
         }
 
@@ -87,6 +105,11 @@ namespace BH.Enemies
                 StopAllCoroutines();
                 StartCoroutine(DeathExplosion());
             }
+        }
+
+        public bool IsBossEnemy()
+        {
+            return m_bossHpBar != null;
         }
 
         /*-------------------------------------------------------------------*/
@@ -136,15 +159,49 @@ namespace BH.Enemies
         private IEnumerator DeathExplosion()
         {
             m_isAlive = false;
+            EnemiesManager manager = GetComponentInParent<EnemiesManager>();
 
             //sfx, animation, screen shake
             SfxManager.instance.PlaySfx(m_clipExplosion);
             m_explosionParticule.SetActive(true);
             ScreenShake.instance.m_amount += m_shakeAmount;
 
-            yield return new WaitForSeconds(m_explosionTime);
+            bool isLastEnemy = manager.IsLastBoss(this);
+            if (isLastEnemy)
+            {
+                //zoom on the last enemy death
+                m_camFollow.trsTarget = transform;
 
-            GetComponentInParent<EnemiesManager>().AnEnemyDie(this);
+                //wait for the explosion anim
+                yield return new WaitForSeconds(m_explosionTime);
+
+                //zoom on the last enemy death
+                m_camFollow.ResetTarget();
+            }
+            else
+            {
+                //wait for the explosion anim
+                yield return new WaitForSeconds(m_explosionTime);
+            }
+
+
+            manager.AnEnemyDie(this, isLastEnemy);
+        }
+
+        private void ChangeAtkPatternState()
+        {
+            if (m_atkState == AtkPatternState.pattern1 && m_life.m_lifeRatio <= 0.75f)
+            {
+                m_atkPatterns = m_atkPatterns2;
+                m_atkState = AtkPatternState.pattern2;
+                m_patternIndex = 0;
+            }
+            else if (m_atkState == AtkPatternState.pattern2 && m_life.m_lifeRatio <= 0.4f)
+            {
+                m_atkPatterns = m_atkPatterns3;
+                m_atkState = AtkPatternState.pattern3;
+                m_patternIndex = 0;
+            }
         }
     }
 }

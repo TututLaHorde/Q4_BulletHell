@@ -16,7 +16,7 @@ namespace BH.Bullets
 
         public virtual bool IsNeedToBeRemove()
         {
-            if (GameArea.instance.IsInGameArea(transform.position))
+            if (GameArea.instance.IsInBulletGameArea(transform.position))
             {
                 return false;
             }

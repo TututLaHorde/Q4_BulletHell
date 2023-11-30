@@ -62,9 +62,9 @@ namespace BH.Player
 
         /*-------------------------------------------------------------------*/
 
-        public void MoveTargetChange(Vector3 targetPos)
+        public void MoveTargetChange(Vector2 targetPos)
         {
-            m_playerMovement.m_targetPos = targetPos;                
+            m_playerMovement.m_mousePos = targetPos;                
         }
 
         public float DeathExplosion()
@@ -74,7 +74,7 @@ namespace BH.Player
             //sfx, animation, screen shake
             SfxManager.instance.PlaySfx(m_clipExplosion);
             m_explosionParticule.SetActive(true);
-            ScreenShake.instance.m_amount += m_shakeAmount;
+            //ScreenShake.instance.m_amount += m_shakeAmount;
 
             return m_explosionTime;
         }

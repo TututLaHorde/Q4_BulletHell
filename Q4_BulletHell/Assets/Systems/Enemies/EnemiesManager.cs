@@ -20,22 +20,12 @@ namespace BH.Enemies
             }
         }
 
-        public void AnEnemyDie(EnemyController enemy)
+        public void AnEnemyDie(EnemyController enemy, bool isLastEnemy)
         {
             if (m_enemies.Contains(enemy))
             {
-                //count the alive enemies
-                int nbAliveEnemies = 0;
-                foreach (var en in m_enemies)
-                {
-                    if (en.gameObject.activeSelf)
-                    {
-                        nbAliveEnemies++;
-                    }
-                }
-
                 //player win if the last enemy die
-                if (nbAliveEnemies == 1)
+                if (isLastEnemy)
                 {
                     GameManager.instance.LastEnemyDie();
                 }
@@ -45,6 +35,30 @@ namespace BH.Enemies
                     enemy.gameObject.SetActive(false);
                 }
             }
+        }
+
+        public bool IsLastBoss(EnemyController enemy)
+        {
+            if (m_enemies.Contains(enemy) && enemy.IsBossEnemy())
+            {
+                //count the alive enemies
+                int nbBossAlive = 0;
+                foreach (var en in m_enemies)
+                {
+                    if (en.gameObject.activeSelf && en.IsBossEnemy())
+                    {
+                        nbBossAlive++;
+                    }
+                }
+
+                //last enemy die
+                if (nbBossAlive == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public EnemyController GetClosestEnemy(Vector3 position)

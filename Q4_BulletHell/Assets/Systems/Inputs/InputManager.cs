@@ -21,8 +21,7 @@ namespace BH.Inputs
 
         public void OnMoveTargetChange(InputAction.CallbackContext ctx)
         {
-            Vector3 targetPos = m_cam.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
-            m_playerController.MoveTargetChange(targetPos);
+            m_playerController.MoveTargetChange(ctx.ReadValue<Vector2>());
         }
 
         public void OnPauseGame(InputAction.CallbackContext ctx)

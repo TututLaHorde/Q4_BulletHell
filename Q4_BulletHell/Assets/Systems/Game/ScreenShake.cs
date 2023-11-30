@@ -41,10 +41,10 @@ namespace BH.Game
                 //calculate shake
                 Vector3 offset = new Vector3(x - 0.5f, y - 0.5f, 0f);
                 offset *= m_amount;
-                offset.z = transform.position.z;
+                offset.z = 0;
 
                 //apply shake
-                transform.position = offset;
+                transform.localPosition = offset;
 
                 //reduce amount
                 m_amount -= m_amountReduction * Time.deltaTime;

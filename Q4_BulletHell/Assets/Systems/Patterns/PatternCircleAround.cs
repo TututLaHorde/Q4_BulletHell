@@ -20,6 +20,7 @@ namespace BH.Patterns
 
         [Header("If targets the player")]
         [SerializeField] private Transform m_playerTrs;
+        [SerializeField] private bool m_targetOnlyFirstBurst;
 
         [Header("Audio")]
         [SerializeField] private AudioClip m_shootClip;
@@ -97,7 +98,7 @@ namespace BH.Patterns
                 while (currentTime < m_timeBetweenBurst)
                 {
                     currentTime += Time.deltaTime;
-                    RotateBetweenBurst(currentTime, m_timeBetweenBurst);
+                    RotateBetweenBurst(currentTime, m_timeBetweenBurst, i);
 
                     yield return null;
                 }
@@ -109,12 +110,12 @@ namespace BH.Patterns
             m_enemy.FinishAnAtkPattern();
         }
 
-        private void RotateBetweenBurst(float currentTime, float maxTime)
+        private void RotateBetweenBurst(float currentTime, float maxTime, int burstIndex)
         {
             float ratio = currentTime / maxTime;
 
             //align with the player
-            if (m_playerTrs != null)
+            if (m_playerTrs != null && (!m_targetOnlyFirstBurst || m_targetOnlyFirstBurst && burstIndex == 0))
             {
                 LookToTarget(m_playerTrs.position, Vector2.right, ratio);
             }

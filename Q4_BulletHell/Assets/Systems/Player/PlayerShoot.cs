@@ -29,8 +29,8 @@ namespace BH.Player
 
                 if (m_playerController != null && m_playerController.m_isAlive) 
                 {
-                    //Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
-                    Vector3 dir = Vector3.right;
+                    Vector3 dir = m_playerController.m_enemyTrs.position - m_shootOrigin.position;
+                    //Vector3 dir = Vector3.right;
                     dir = (dir.normalized + (Vector3)RandomVector2() * m_bulletSpread).normalized;
 
                     m_bulletManager.Shoot(m_shootOrigin.position, dir);
