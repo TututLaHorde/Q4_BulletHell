@@ -1642,17 +1642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trPlayer: {fileID: 701061506}
   smoothTime: 0.3
---- !u!114 &564109302 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1555678669668561211, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-  m_PrefabInstance: {fileID: 1720705073354627482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &603853117 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 792613456794270321, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
@@ -3404,17 +3393,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207570852}
   m_CullTransparentMesh: 1
---- !u!114 &1259897445 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 301315403896735975, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-  m_PrefabInstance: {fileID: 1720705073354627482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1344774887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +3882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479316935}
   - component: {fileID: 1479316936}
+  - component: {fileID: 1479316937}
   m_Layer: 8
   m_Name: CircleBorder
   m_TagString: Untagged
@@ -3968,7 +3947,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: e0e6aadaa8ebefc4ead2289d373fe9b9, type: 3}
-  m_Color: {r: 0.77647066, g: 0.7137255, b: 0.9803922, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3978,6 +3957,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1479316937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479316934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5733d99c12e5684bbc4eba896013ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationSpeed: 25
 --- !u!1 &1537347350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4575,17 +4567,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699885927}
   m_CullTransparentMesh: 1
---- !u!114 &1717511542 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6274080273711538815, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-  m_PrefabInstance: {fileID: 1720705073354627482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1720975103
 GameObject:
   m_ObjectHideFlags: 0
@@ -5374,26 +5355,6 @@ PrefabInstance:
       propertyPath: m_bossHpBar
       value: 
       objectReference: {fileID: 2001653761}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[2]
-      value: 
-      objectReference: {fileID: 564109302}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[3]
-      value: 
-      objectReference: {fileID: 1717511542}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[4]
-      value: 
-      objectReference: {fileID: 1259897445}
-    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
-      propertyPath: m_atkPatterns.Array.data[5]
-      value: 
-      objectReference: {fileID: 564109302}
     - target: {fileID: 6100401380984449792, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_Name
       value: Enemy

@@ -1283,12 +1283,10 @@ MonoBehaviour:
   m_atkPatterns:
   - {fileID: 301315403896735975}
   - {fileID: 301315403896735975}
-  - {fileID: 301315403896735975}
   - {fileID: 1555678669668561211}
   - {fileID: 6274080273711538815}
-  - {fileID: 6274080273711538815}
   - {fileID: 301315403896735975}
-  - {fileID: 301315403896735975}
+  - {fileID: 1555678669668561211}
   m_explosionParticule: {fileID: 1522584376369345162}
   m_explosionTime: 1.5
   m_shakeAmount: 1

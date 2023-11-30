@@ -70,9 +70,7 @@ namespace BH.Game
             MusicManager.instance.SmoothStopMusic(0.2f);
 
             //pause game
-            Time.timeScale = 0f;
-
-            
+            SetPause(true);
         }
 
         public void PlayerDie()
@@ -91,7 +89,7 @@ namespace BH.Game
                 m_pauseUI.SetActive(true);
 
                 //pause game
-                Time.timeScale = 0f;
+                SetPause(true);
             }
         }
 
@@ -122,7 +120,8 @@ namespace BH.Game
                 yield return null;
             }
 
-            Time.timeScale = 1f;
+            //play game
+            SetPause(false);
 
             //Remove UI
             m_startingUI.gameObject.SetActive(false);
@@ -143,20 +142,25 @@ namespace BH.Game
             MusicManager.instance.SmoothStopMusic(m_musicStopTime);
 
             //pause game
-            Time.timeScale = 0f;
+            SetPause(true);
 
             //play sound
             yield return new WaitForSecondsRealtime(m_musicStopTime);
             SfxManager.instance.PlaySfx(m_clipLose);
         }
 
-
-
-        private IEnumerator PlayWinSfx()
+        private void SetPause(bool pauseGame)
         {
-            //play sound
-            yield return new WaitForSecondsRealtime(m_musicStopTime);
-            SfxManager.instance.PlaySfx(m_clipWin);
+            if (pauseGame)
+            {
+                Time.timeScale = 0f;
+                Cursor.visible = true;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                Cursor.visible = false;
+            }
         }
     }
 }
