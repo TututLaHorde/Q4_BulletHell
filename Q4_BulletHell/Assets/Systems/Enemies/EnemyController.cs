@@ -43,7 +43,7 @@ namespace BH.Enemies
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
             //first pattern
-            StartCoroutine(WaitBetweenPattern());
+            StartNextAtkPattern();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -115,21 +115,10 @@ namespace BH.Enemies
 
         private IEnumerator WaitBetweenPattern()
         {
-            int nextPattern;
             int previousPattern;
 
-            //set next pattern
-            if (m_patternIndex < m_atkPatterns.Count)
-            {
-                nextPattern = m_patternIndex;
-            }
-            else
-            {
-                nextPattern = 0;
-            }
-
-            //set previous pattern
-            if (nextPattern == 0)
+            //get previous pattern
+            if (m_patternIndex == 0)
             {
                 previousPattern = m_atkPatterns.Count - 1;
             }
@@ -138,12 +127,8 @@ namespace BH.Enemies
                 previousPattern = m_patternIndex - 1;
             }
 
-            //Calcul waiting time
-            float waitingTime = (m_atkPatterns[previousPattern].m_refreshTime + m_atkPatterns[previousPattern].m_chargeTime);
-            waitingTime *= m_life.m_lifeRatio;
-
             //Wait before doing next pattern
-            yield return new WaitForSeconds(waitingTime);
+            yield return new WaitForSeconds(m_atkPatterns[previousPattern].m_timeBeforeNextPattern);
 
             StartNextAtkPattern();
         }

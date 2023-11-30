@@ -2,7 +2,6 @@ using BH.Enemies;
 using BH.Game;
 using System;
 using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace BH.Patterns
@@ -28,6 +27,7 @@ namespace BH.Patterns
         [SerializeField][Range(0f, 1f)] private float m_volume;
 
         private EnemyController m_enemy;
+        private Vector3 m_previousRotation;
 
         /*-------------------------------------------------------------------*/
 
@@ -49,12 +49,6 @@ namespace BH.Patterns
                 return;
             }
 
-            //targets the player
-            if (m_playerTrs != null) 
-            {
-                LookToTarget(m_enemy.transform, m_playerTrs.position, Vector2.right);
-            }
-
             Shoot();
 
             //screen shake
@@ -63,10 +57,6 @@ namespace BH.Patterns
             //sfx
             if (m_shootSource != null && m_shootClip != null)
                 m_shootSource.PlayOneShot(m_shootClip, m_volume);
-
-            //changements after shoot
-            Vector3 newRot = m_shooterTrs.rotation.eulerAngles + Vector3.forward * m_rotationEachBurst;
-            m_shooterTrs.rotation = Quaternion.Euler(newRot);
         }
 
         /*-------------------------------------------------------------------*/
@@ -96,23 +86,72 @@ namespace BH.Patterns
 
         private IEnumerator BurstManagement()
         {
+            //do all the burst
             for (int i = 0; i < m_burstNb; i++)
             {
-                DoOneBurst(i);
+                //init for rotation
+                float currentTime = 0f;
+                m_previousRotation = m_shooterTrs.rotation.eulerAngles;
 
-                yield return new WaitForSeconds(m_timeBetweenBurst);
+                //rotate shooter before burst
+                while (currentTime < m_timeBetweenBurst)
+                {
+                    currentTime += Time.deltaTime;
+                    RotateBetweenBurst(currentTime, m_timeBetweenBurst);
+
+                    yield return null;
+                }
+
+                DoOneBurst(i);
             }
 
+            //next pattern
             m_enemy.FinishAnAtkPattern();
         }
 
-        private void LookToTarget(Transform ownTrs, Vector3 tagetPos, Vector2 originalLookingDir)
+        private void RotateBetweenBurst(float currentTime, float maxTime)
         {
-            Vector2 direction = tagetPos - ownTrs.position;
+            float ratio = currentTime / maxTime;
 
+            //align with the player
+            if (m_playerTrs != null)
+            {
+                LookToTarget(m_playerTrs.position, Vector2.right, ratio);
+            }
+            //rotate between burst
+            else
+            {
+                Vector3 newRot = m_previousRotation + Vector3.forward * m_rotationEachBurst * ratio;
+                m_shooterTrs.rotation = Quaternion.Euler(newRot);
+            }
+        }
+
+        private void LookToTarget(Vector3 targetPos, Vector2 originalLookingDir, float ratio = 1)
+        {
+            //find the direction to look to target
+            Vector2 direction = targetPos - m_shooterTrs.position;
             direction = direction.normalized;
             float angle = Vector2.SignedAngle(originalLookingDir, direction);
-            ownTrs.rotation = Quaternion.Euler(Vector3.forward * angle);
+
+            //fix rotation
+            m_previousRotation.z %= 360;
+            m_shooterTrs.rotation = Quaternion.Euler(m_previousRotation);
+
+            angle -= m_previousRotation.z;
+            if (targetPos.y < 0)
+            {
+                angle += 360;
+            }
+            if (Mathf.Abs(angle) > 180)
+            {
+                float signe = (angle / Mathf.Abs(angle));
+                angle = -signe * (360 - (Mathf.Abs(angle)));
+            }
+
+
+            //set new rotation (lerp with ratio)
+            Vector3 newRot = m_previousRotation + Vector3.forward * angle * ratio;
+            m_shooterTrs.rotation = Quaternion.Euler(newRot);
         }
     }
 }

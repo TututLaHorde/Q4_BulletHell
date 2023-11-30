@@ -4,7 +4,7 @@ namespace BH.Enemies
 {
     public class EnemyLife
     {
-        public float m_lifeRatio {  get; private set; }
+        private float m_lifeRatio;
 
         private int m_currentHp;
         private int m_maxHp;
