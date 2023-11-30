@@ -12,8 +12,10 @@ namespace BH.Player
         private Transform m_ownTrs;
 
         //others
+        private Camera m_cam;
         private PlayerController m_playerController;
-        [HideInInspector] public Vector3 m_targetPos;
+        [HideInInspector] public Vector2 m_mousePos;
+        private Vector3 m_targetPos;
 
         /*-------------------------------------------------------------------*/
 
@@ -21,10 +23,13 @@ namespace BH.Player
         {
             m_ownTrs = GetComponent<Transform>();
             m_playerController = GetComponent<PlayerController>();
+            m_cam = Camera.main;
         }
 
         private void FixedUpdate()
         {
+            m_targetPos = m_cam.ScreenToWorldPoint(m_mousePos);
+
             LookToTarget();
             MoveToTarget();
         }
@@ -38,7 +43,7 @@ namespace BH.Player
                 return;
             }
 
-                float speed = m_speed;
+            float speed = m_speed;
             Vector2 direction = m_targetPos - m_ownTrs.position;
 
             //too close of the target
@@ -64,8 +69,8 @@ namespace BH.Player
 
         private void LookToTarget()
         {
-            //Vector2 direction = m_playerController.m_enemyTrs.position - m_ownTrs.position;
-            Vector2 direction = Vector3.right;
+            Vector2 direction = m_playerController.m_enemyTrs.position - m_ownTrs.position;
+            //Vector2 direction = Vector3.right;
 
             direction = direction.normalized;
             float angle = Vector2.SignedAngle(Vector2.up, direction);
