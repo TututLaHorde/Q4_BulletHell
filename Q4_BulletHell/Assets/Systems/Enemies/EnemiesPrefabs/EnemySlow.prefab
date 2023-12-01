@@ -354,6 +354,7 @@ MonoBehaviour:
   m_sprites: {fileID: 9150245288768852869}
   m_clipExplosion: {fileID: 8300000, guid: 9e01985009b33fc4db5712b9897a2f79, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
+  m_clipRegen: {fileID: 8300000, guid: 0029dbd5a531ca549903783aef4fdaf5, type: 3}
   m_impactVolume: 0.07
   m_absorbtionTime: 0.5
   m_absorbtionCurve:
@@ -389,6 +390,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_regenMultiplier: 2
 --- !u!114 &367130734527663666
 MonoBehaviour:
   m_ObjectHideFlags: 0

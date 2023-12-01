@@ -35,6 +35,15 @@ namespace BH.Enemies
             UpdtLifeBar();
         }
 
+        public void RegenLife(int hp)
+        {
+            m_currentHp += hp;
+            UpdtLifeBar();
+        }
+
+        public int GetCurrentHp()
+        { return m_currentHp; }
+
         /*-------------------------------------------------------------------*/
 
         private void SetMaxHp(int hp)

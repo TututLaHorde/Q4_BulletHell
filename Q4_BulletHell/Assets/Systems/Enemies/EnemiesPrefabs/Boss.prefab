@@ -1268,12 +1268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297039bb7a976de49af787a60a49b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHp: 2000
+  m_maxHp: 8000
   m_bossHpBar: {fileID: 0}
   m_atkPatterns1:
-  - {fileID: 301315403896735975}
-  - {fileID: 301315403896735975}
-  - {fileID: 1555678669668561211}
+  - {fileID: 6397789334490677740}
+  - {fileID: 3645207306085964621}
+  - {fileID: 0}
   - {fileID: 301315403896735975}
   - {fileID: 6274080273711538815}
   - {fileID: 1555678669668561211}
@@ -1296,11 +1296,12 @@ MonoBehaviour:
   - {fileID: 3041088345530132682}
   - {fileID: 4019525880257047829}
   m_explosionParticule: {fileID: 1522584376369345162}
-  m_explosionTime: 1.5
+  m_explosionTime: 3.5
   m_shakeAmount: 1
   m_sprites: {fileID: 9150245288768852869}
   m_clipExplosion: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
+  m_clipRegen: {fileID: 8300000, guid: 0029dbd5a531ca549903783aef4fdaf5, type: 3}
   m_impactVolume: 0.07
   m_absorbtionTime: 1
   m_absorbtionCurve:
@@ -1327,6 +1328,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  m_regenMultiplier: 2
 --- !u!1 &6397044100769280312
 GameObject:
   m_ObjectHideFlags: 0

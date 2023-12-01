@@ -42,11 +42,13 @@ namespace BH.Enemies
         [Header("Audio")]
         [SerializeField] private AudioClip m_clipExplosion;
         [SerializeField] private AudioClip m_clipImpact;
+        [SerializeField] private AudioClip m_clipRegen;
         [SerializeField][Range(0f, 1f)] private float m_impactVolume;
 
         [Header("Absorbtion")]
         [SerializeField] private float m_absorbtionTime = 1f;
         [SerializeField] private AnimationCurve m_absorbtionCurve;
+        [SerializeField][Min(0f)] private float m_regenMultiplier = 2f;
 
         //other component
         private CameraFollow m_camFollow;
@@ -111,6 +113,12 @@ namespace BH.Enemies
                         enemy.IsBossEnemy())
                 {
                     StartCoroutine(DeathByAbsorbtion());
+
+                    //regen boss
+                    int regenHp = Mathf.RoundToInt(m_life.GetCurrentHp() * m_regenMultiplier);
+                    enemy.m_life.RegenLife(regenHp);
+
+                    SfxManager.instance.PlaySfx(m_clipRegen);
                 }
             }
         }
