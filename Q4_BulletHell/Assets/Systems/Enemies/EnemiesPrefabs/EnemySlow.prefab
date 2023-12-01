@@ -349,7 +349,7 @@ MonoBehaviour:
   m_atkPatterns3:
   - {fileID: 2920070062688763479}
   m_explosionParticule: {fileID: 1522584376369345162}
-  m_explosionTime: 3
+  m_explosionTime: 3.5
   m_shakeAmount: 0.2
   m_sprites: {fileID: 9150245288768852869}
   m_clipExplosion: {fileID: 8300000, guid: 9e01985009b33fc4db5712b9897a2f79, type: 3}

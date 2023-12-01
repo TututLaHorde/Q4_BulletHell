@@ -1055,10 +1055,11 @@ MonoBehaviour:
   m_pauseUI: {fileID: 226014037}
   m_startingUI: {fileID: 1608221973}
   m_timeAfterPause: 3
-  m_player: {fileID: 701061503}
   m_musicStopTime: 1.3
   m_clipWin: {fileID: 8300000, guid: 0f64c6b443b8b1846baad1b0ab4dd3df, type: 3}
   m_clipLose: {fileID: 8300000, guid: 3cd7b3233633424438fab9dc1a2fe8c1, type: 3}
+  m_player: {fileID: 701061503}
+  m_playerIsImmortal: 0
 --- !u!114 &296840683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,12 +5281,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_maxHp
-      value: 10000
+      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bossHpBar
       value: 
       objectReference: {fileID: 2001653761}
+    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_explosionTime
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_atkPatterns1.Array.data[0]
       value: 

@@ -21,13 +21,14 @@ namespace BH.Game
         [Header("Pause")]
         [SerializeField] private float m_timeAfterPause;
 
-        [Header("Others")]
-        [SerializeField] private PlayerController m_player;
-
         [Header("Audio")]
         [SerializeField] private float m_musicStopTime = 1.5f;
         [SerializeField] private AudioClip m_clipWin;
         [SerializeField] private AudioClip m_clipLose;
+
+        [Header("Others")]
+        [SerializeField] private PlayerController m_player;
+        public bool m_playerIsImmortal;
 
         /*-------------------------------------------------------------------*/
 
@@ -75,10 +76,10 @@ namespace BH.Game
 
         public void PlayerDie()
         {
-            //if (m_player.m_isAlive)
-            //{
-            //    StartCoroutine(PlayerDeath());
-            //}
+            if (m_player.m_isAlive && !m_playerIsImmortal)
+            {
+                StartCoroutine(PlayerDeath());
+            }
         }
 
         public void PauseGame()

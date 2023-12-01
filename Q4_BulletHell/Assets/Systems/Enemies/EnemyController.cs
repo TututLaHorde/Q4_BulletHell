@@ -202,6 +202,9 @@ namespace BH.Enemies
             {
                 //zoom on the last enemy death
                 m_camFollow.trsTarget = transform;
+                GameManager.instance.m_playerIsImmortal = true;
+
+                //wait for the explosion anim and reset cam
                 yield return new WaitForSeconds(m_explosionTime);
                 m_camFollow.ResetTarget();
             }
