@@ -1302,6 +1302,31 @@ MonoBehaviour:
   m_clipExplosion: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
   m_impactVolume: 0.07
+  m_absorbtionTime: 1
+  m_absorbtionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 1.0857668
+      outSlope: 1.0857668
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.083333336
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.11138702
+      outSlope: 0.11138702
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.32999998
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6397044100769280312
 GameObject:
   m_ObjectHideFlags: 0

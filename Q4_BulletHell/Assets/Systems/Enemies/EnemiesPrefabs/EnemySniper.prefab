@@ -368,6 +368,40 @@ MonoBehaviour:
   m_clipExplosion: {fileID: 8300000, guid: 9e01985009b33fc4db5712b9897a2f79, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
   m_impactVolume: 0.07
+  m_absorbtionTime: 0.5
+  m_absorbtionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.01812541
+      outSlope: 0.01812541
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.26000002
+    - serializedVersion: 3
+      time: 0.75
+      value: 1.5
+      inSlope: 0.003958862
+      outSlope: 0.003958862
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.5723691
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -3.4420066
+      outSlope: -3.4420066
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.042142272
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &3701220514596369108
 MonoBehaviour:
   m_ObjectHideFlags: 0

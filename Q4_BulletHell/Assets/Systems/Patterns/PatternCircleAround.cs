@@ -123,7 +123,7 @@ namespace BH.Patterns
 
             //align with the player
             if (m_playerTrs != null && 
-               (m_targetState == TargetState.targetPlayerEachBurst || m_targetState == TargetState.targetPlayerEachBurst && burstIndex == 0))
+               (m_targetState == TargetState.targetPlayerEachBurst || m_targetState == TargetState.targetPlayerFirstBurst && burstIndex == 0))
             {
                 LookToTarget(m_playerTrs.position, Vector2.right, ratio);
             }

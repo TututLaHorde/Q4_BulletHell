@@ -44,8 +44,14 @@ namespace BH.Enemies
         [SerializeField] private AudioClip m_clipImpact;
         [SerializeField][Range(0f, 1f)] private float m_impactVolume;
 
+        [Header("Absorbtion")]
+        [SerializeField] private float m_absorbtionTime = 1f;
+        [SerializeField] private AnimationCurve m_absorbtionCurve;
+
         //other component
         private CameraFollow m_camFollow;
+        private EnemiesManager m_enemiesManager;
+        private Vector3 m_originalScale;
 
         //vars
         public int m_poolingIndex { get; private set; }
@@ -53,15 +59,23 @@ namespace BH.Enemies
 
 
         /*-------------------------------------------------------------------*/
+        private void Awake()
+        {
+            m_originalScale = transform.localScale;
+        }
 
         private void Start()
         {
             //init life
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
+            //init atk pattern
             FirstAtkPattern();
 
+            //get components
             m_camFollow = Camera.main.GetComponentInParent<CameraFollow>();
+            m_enemiesManager = GetComponentInParent<EnemiesManager>();
+
             Assert.IsNotNull(m_camFollow);
         }
 
@@ -69,26 +83,35 @@ namespace BH.Enemies
         {
             if (collision == null) { return; }
 
-            //collid with player bullet
-            if (m_isAlive &&
-                collision.gameObject.layer == LayerMask.NameToLayer("Player") &&
+            //enemy takes dmg
+            if (m_isAlive && collision.gameObject.layer == LayerMask.NameToLayer("Player") &&
                 PlayerController.instance.m_isAlive && collision.gameObject.TryGetComponent(out PlayerBullet playerBullet))
             {
-                //enemy takes dmg
                 m_life.TakeDamage(playerBullet.m_damage);
                 SfxManager.instance.PlayMultipleSfx(m_clipImpact, m_impactVolume);
 
-                //for bullet pooling
                 playerBullet.m_isCollidWithEnemy = true;
             }
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            //player die
-            if (m_isAlive && collision.gameObject.TryGetComponent(out PlayerCollision player))
+            if (collision == null) { return; }
+
+            if (m_isAlive)
             {
-                GameManager.instance.PlayerDie();
+                //player die
+                if (collision.gameObject.TryGetComponent(out PlayerCollision player))
+                {
+                    GameManager.instance.PlayerDie();
+                }
+                //enemy collid with boss
+                else if (!IsBossEnemy() && 
+                        collision.gameObject.TryGetComponent(out EnemyController enemy) && 
+                        enemy.IsBossEnemy())
+                {
+                    StartCoroutine(DeathByAbsorbtion());
+                }
             }
         }
 
@@ -112,6 +135,7 @@ namespace BH.Enemies
             {
                 m_sprites.SetActive(true);
             }
+            transform.localScale = m_originalScale;
 
             FirstAtkPattern();
         }
@@ -183,7 +207,6 @@ namespace BH.Enemies
         private IEnumerator DeathExplosion()
         {
             m_isAlive = false;
-            EnemiesManager manager = GetComponentInParent<EnemiesManager>();
 
             //sfx, animation, screen shake
             SfxManager.instance.PlaySfx(m_clipExplosion);
@@ -197,7 +220,7 @@ namespace BH.Enemies
             }
 
             //Zoom or continue playing
-            bool isLastEnemy = manager.IsLastBoss(this);
+            bool isLastEnemy = m_enemiesManager.IsLastBoss(this);
             if (isLastEnemy)
             {
                 //zoom on the last enemy death
@@ -215,7 +238,28 @@ namespace BH.Enemies
             }
 
 
-            manager.AnEnemyDie(this, isLastEnemy);
+            m_enemiesManager.AnEnemyDie(this, isLastEnemy);
+        }
+
+        private IEnumerator DeathByAbsorbtion()
+        {
+            //can't fonction
+            m_isAlive = false;
+
+            //absorbtion anim
+            float t = m_absorbtionTime;
+            while (t > 0)
+            {
+                t -= Time.deltaTime;
+
+                //reducing scale
+                transform.localScale = m_originalScale * m_absorbtionCurve.Evaluate(t / m_absorbtionTime);
+                yield return null;
+            }
+
+            //death
+            bool isLastEnemy = m_enemiesManager.IsLastBoss(this);
+            m_enemiesManager.AnEnemyDie(this, isLastEnemy);
         }
 
         private void ChangeAtkPatternState()
