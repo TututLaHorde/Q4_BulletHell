@@ -61,6 +61,11 @@ namespace BH.Game
                 return false;
             }
         }
+
+        public float GetBulletRadius()
+        {
+            return m_radiusBulletArea;
+        }
     }
 }
 

@@ -1,3 +1,4 @@
+using BH.Game;
 using BH.Tools;
 
 using System.Collections.Generic;
@@ -88,7 +89,9 @@ namespace BH.Enemies
             int enemyIndex = Random.Range(0, m_pbEnemies.Count);
 
             //choose random point around the border of the map
-            Vector3 pos = new Vector3(4f, 4f, 0f);
+            float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+            Vector3 pos = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f);
+            pos *= GameArea.instance.GetBulletRadius();
 
             //spawn at the right position
             EnemyController m_newEnemy = m_pooling[enemyIndex].UseNew();
