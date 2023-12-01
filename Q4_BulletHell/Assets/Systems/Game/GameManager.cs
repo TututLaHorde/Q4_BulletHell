@@ -75,10 +75,10 @@ namespace BH.Game
 
         public void PlayerDie()
         {
-            if (m_player.m_isAlive)
-            {
-                StartCoroutine(PlayerDeath());
-            }
+            //if (m_player.m_isAlive)
+            //{
+            //    StartCoroutine(PlayerDeath());
+            //}
         }
 
         public void PauseGame()

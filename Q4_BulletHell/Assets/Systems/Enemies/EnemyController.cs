@@ -43,10 +43,13 @@ namespace BH.Enemies
         [SerializeField] private AudioClip m_clipImpact;
         [SerializeField][Range(0f, 1f)] private float m_impactVolume;
 
-        public int m_poolingIndex { get; private set; }
-        private bool m_isAlive = true;
-
+        //other component
         private CameraFollow m_camFollow;
+
+        //vars
+        public int m_poolingIndex { get; private set; }
+        public bool m_isAlive { get; private set; } = true;
+
 
         /*-------------------------------------------------------------------*/
 

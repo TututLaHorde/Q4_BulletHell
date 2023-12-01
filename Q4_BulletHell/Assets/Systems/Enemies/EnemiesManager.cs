@@ -1,6 +1,6 @@
+using BH.Game;
 using System.Collections.Generic;
 using UnityEngine;
-using BH.Game;
 
 namespace BH.Enemies
 {
@@ -94,8 +94,8 @@ namespace BH.Enemies
 
             foreach (var en in m_enemies)
             {
-                //ignore desactive enemies
-                if (!en.gameObject.activeSelf)
+                //ignore desactive and dead enemies
+                if (!en.gameObject.activeSelf || !en.m_isAlive)
                 {
                     continue;
                 }
@@ -110,6 +110,24 @@ namespace BH.Enemies
             }
 
             return enemy;
+        }
+
+        public Transform GetRandomBoss()
+        {
+            List<EnemyController> bosses = new();
+
+            //get a only boss
+            for (int i = 0; i < m_enemies.Count; i++)
+            {
+                if (m_enemies[i].IsBossEnemy())
+                {
+                    bosses.Add(m_enemies[i]);
+                }
+            }
+
+            //return random bosses
+            int index = Random.Range(0, bosses.Count);
+            return bosses[index].transform;
         }
     }
 }

@@ -53,12 +53,12 @@ MonoBehaviour:
   m_angleOffset: 40
   m_distFromCenter: 0.5
   m_rotationEachBurst: 0
-  m_nbBullet: 5
-  m_shakeAmount: 0.1
+  m_nbBullet: 3
+  m_shakeAmount: 0.02
   m_targetState: 1
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 7383257221720241908}
-  m_volume: 1
+  m_volume: 0.25
 --- !u!82 &7383257221720241908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 3009972444673412998}
   - component: {fileID: 7163912411572428632}
   - component: {fileID: 5306973004631570228}
+  - component: {fileID: 3701220514596369108}
   m_Layer: 3
   m_Name: EnemySniper
   m_TagString: Untagged
@@ -366,6 +367,19 @@ MonoBehaviour:
   m_clipExplosion: {fileID: 8300000, guid: 9e01985009b33fc4db5712b9897a2f79, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
   m_impactVolume: 0.07
+--- !u!114 &3701220514596369108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6100401380984449792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bcc8efdb5f74124593abd2acaa09fe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 3
 --- !u!1 &6397044100769280312
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,16 +515,16 @@ MonoBehaviour:
   m_timeBeforeNextPattern: 3
   m_burstNb: 3
   m_timeBetweenBurst: 0.3
-  m_startAngle: 340
-  m_angleOffset: 40
+  m_startAngle: 0
+  m_angleOffset: 0
   m_distFromCenter: 0.5
   m_rotationEachBurst: 0
-  m_nbBullet: 3
-  m_shakeAmount: 0.1
+  m_nbBullet: 1
+  m_shakeAmount: 0.02
   m_targetState: 1
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 8703150315420054238}
-  m_volume: 1
+  m_volume: 0.25
 --- !u!82 &8703150315420054238
 AudioSource:
   m_ObjectHideFlags: 0
@@ -897,15 +911,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 417761080263594748, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 417761080263594748, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 417761080263594748, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 417761080263594748, guid: b561b38278d1d044aa0a9cf00c054b0e, type: 3}
       propertyPath: m_LocalPosition.x
