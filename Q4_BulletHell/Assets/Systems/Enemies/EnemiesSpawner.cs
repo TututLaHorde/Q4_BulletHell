@@ -12,14 +12,28 @@ namespace BH.Enemies
         [SerializeField][Min(0f)] private int m_nbEnemiesMax;
 
         [Header("Spawn interval")]
-        [SerializeField][Min(0f)] private float m_timeToMaxDifficulty;
-        private float m_intervalTime = 6f;
-        private float m_currentTime = 6f;
+        [SerializeField][Min(0f)] private float m_minIntervalTime;
+        [SerializeField][Min(0f)] private float m_maxIntervalTime;
+        [SerializeField][Min(0f)] private float m_timeToMinInterval;
+        [SerializeField] private AnimationCurve m_intervalCurve;
+        private float m_currIntervalTime;
+        private float m_timeFromStart;
 
         private List<PoolingManager<EnemyController>> m_pooling = new();
         private EnemiesManager m_manager;
 
         /*-------------------------------------------------------------------*/
+
+        private void Awake()
+        {
+            m_currIntervalTime = m_maxIntervalTime;
+
+            if (m_minIntervalTime > m_maxIntervalTime)
+            {
+                m_minIntervalTime = m_maxIntervalTime;
+                Debug.Log("Min intervale time must be smaller than max");
+            }
+        }
 
         private void Start()
         {
@@ -36,16 +50,25 @@ namespace BH.Enemies
 
         private void Update()
         {
+            //spawn there is place for new enemies
             if (m_pbEnemies.Count > 0 && m_nbEnemiesMax > m_manager.GetNbEnemyAlive())
             {
-                if (m_currentTime <= 0)
+                //spawn interval
+                if (m_currIntervalTime <= 0)
                 {
-                    m_currentTime = m_intervalTime;
+                    SetIntervalTime();
                     SpawnRandomEnemy();
                 }
                 else
                 {
-                    m_currentTime -= Time.deltaTime;
+                    m_currIntervalTime -= Time.deltaTime;
+                }
+
+                //for interval difficulty 
+                if (m_timeFromStart < m_timeToMinInterval)
+                {
+                    m_timeFromStart += Time.deltaTime;
+                    m_timeFromStart = Mathf.Clamp(m_timeFromStart, 0, m_timeToMinInterval);
                 }
             }
         }
@@ -74,6 +97,15 @@ namespace BH.Enemies
             //Init the enemy
             m_manager.AnEnemySpawn(m_newEnemy);
             m_newEnemy.Init(enemyIndex);
+        }
+
+        private void SetIntervalTime()
+        {
+            //lerp with the difficulty curve
+            float lerpValue = m_timeFromStart / m_timeToMinInterval;
+            lerpValue = m_intervalCurve.Evaluate(lerpValue);
+
+            m_currIntervalTime = Mathf.Lerp(m_maxIntervalTime, m_minIntervalTime, lerpValue);
         }
     }
 }

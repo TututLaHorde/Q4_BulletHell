@@ -3067,10 +3067,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pbEnemies:
   - {fileID: 6100401380984449792, guid: 17511dcc26d8d1440941aa5cb8fbc435, type: 3}
-  - {fileID: 6100401380984449792, guid: 0f309b429831d7544a34a6ce69e0a8cc, type: 3}
-  - {fileID: 6100401380984449792, guid: 0f309b429831d7544a34a6ce69e0a8cc, type: 3}
-  m_nbEnemiesMax: 2
-  m_timeToMaxDifficulty: 10
+  m_nbEnemiesMax: 10
+  m_minIntervalTime: 1
+  m_maxIntervalTime: 8
+  m_timeToMinInterval: 180
+  m_intervalCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &1155502346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5206140190819724785, guid: d1d2fe6f37d178d4e9b2c0391cfcae94, type: 3}
@@ -5246,6 +5270,10 @@ PrefabInstance:
     - target: {fileID: 792613456794270321, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
+      propertyPath: m_maxHp
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5306973004631570228, guid: 14268f8a473efd24eb0115f52d5d6020, type: 3}
       propertyPath: m_bossHpBar

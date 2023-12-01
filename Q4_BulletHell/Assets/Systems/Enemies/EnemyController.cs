@@ -55,10 +55,7 @@ namespace BH.Enemies
             //init life
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
 
-            //first pattern
-            m_atkPatterns = m_atkPatterns1;
-            m_atkState = AtkPatternState.pattern1;
-            StartNextAtkPattern();
+            FirstAtkPattern();
 
             m_camFollow = Camera.main.GetComponentInParent<CameraFollow>();
             Assert.IsNotNull(m_camFollow);
@@ -100,10 +97,13 @@ namespace BH.Enemies
 
             //init life
             m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
+            m_isAlive = true;
 
             //active but not explosion fx
             transform.GetChild(0).gameObject.SetActive(false);
             gameObject.SetActive(true);
+
+            FirstAtkPattern();
         }
 
         public void FinishAnAtkPattern()
@@ -216,6 +216,13 @@ namespace BH.Enemies
                 m_atkState = AtkPatternState.pattern3;
                 m_patternIndex = 0;
             }
+        }
+
+        private void FirstAtkPattern()
+        {
+            m_atkPatterns = m_atkPatterns1;
+            m_atkState = AtkPatternState.pattern1;
+            StartNextAtkPattern();
         }
     }
 }
