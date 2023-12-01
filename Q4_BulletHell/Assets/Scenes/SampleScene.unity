@@ -1776,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2731738644223333745, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2731738644223333745, guid: 354a709fbaebe3f4aafce7af07b3806f, type: 3}
       propertyPath: m_bulletManager
@@ -3076,7 +3076,7 @@ MonoBehaviour:
   - {fileID: 6100401380984449792, guid: 17511dcc26d8d1440941aa5cb8fbc435, type: 3}
   m_nbEnemiesMax: 20
   m_minIntervalTime: 3
-  m_maxIntervalTime: 15
+  m_maxIntervalTime: 3
   m_timeToMinInterval: 240
   m_intervalCurve:
     serializedVersion: 2

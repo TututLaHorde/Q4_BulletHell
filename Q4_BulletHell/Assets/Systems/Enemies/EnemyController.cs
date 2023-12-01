@@ -37,6 +37,7 @@ namespace BH.Enemies
         [SerializeField] private GameObject m_explosionParticule;
         [SerializeField] private float m_explosionTime;
         [SerializeField] private float m_shakeAmount;
+        [SerializeField] private GameObject m_sprites;
 
         [Header("Audio")]
         [SerializeField] private AudioClip m_clipExplosion;
@@ -105,6 +106,12 @@ namespace BH.Enemies
             //active but not explosion fx
             transform.GetChild(0).gameObject.SetActive(false);
             gameObject.SetActive(true);
+
+            //reactive sprites
+            if (m_sprites != null)
+            {
+                m_sprites.SetActive(true);
+            }
 
             FirstAtkPattern();
         }
@@ -183,16 +190,19 @@ namespace BH.Enemies
             m_explosionParticule.SetActive(true);
             ScreenShake.instance.m_amount += m_shakeAmount;
 
+            //sprites disapear
+            if (m_sprites != null)
+            {
+                m_sprites.SetActive(false);
+            }
+
+            //Zoom or continue playing
             bool isLastEnemy = manager.IsLastBoss(this);
             if (isLastEnemy)
             {
                 //zoom on the last enemy death
                 m_camFollow.trsTarget = transform;
-
-                //wait for the explosion anim
                 yield return new WaitForSeconds(m_explosionTime);
-
-                //zoom on the last enemy death
                 m_camFollow.ResetTarget();
             }
             else

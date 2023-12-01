@@ -70,7 +70,7 @@ namespace BH.Enemies
             float multiplier = 1f;
             if (m_enemyLife.m_lifeRatio <= 0.5f)
             {
-                multiplier = 2f;
+                multiplier = 2.5f;
             }
 
             //apply movement

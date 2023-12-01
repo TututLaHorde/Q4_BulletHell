@@ -349,8 +349,9 @@ MonoBehaviour:
   m_atkPatterns3:
   - {fileID: 2920070062688763479}
   m_explosionParticule: {fileID: 1522584376369345162}
-  m_explosionTime: 1.5
+  m_explosionTime: 3
   m_shakeAmount: 0.2
+  m_sprites: {fileID: 9150245288768852869}
   m_clipExplosion: {fileID: 8300000, guid: 9e01985009b33fc4db5712b9897a2f79, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
   m_impactVolume: 0.07
@@ -366,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcc8efdb5f74124593abd2acaa09fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 1.5
+  m_speed: 1
 --- !u!1 &6397044100769280312
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
-using UnityEngine;
 using BH.Enemies;
 using BH.Game;
 using BH.Music;
+using UnityEngine;
 
 namespace BH.Player
 {
@@ -22,7 +22,7 @@ namespace BH.Player
 
         [SerializeField] private AudioClip m_clipExplosion;
 
-        //own component
+        [Header("Explosion")]
         private PlayerMovement m_playerMovement;
         private Transform m_ownTrs;
 
@@ -74,7 +74,7 @@ namespace BH.Player
             //sfx, animation, screen shake
             SfxManager.instance.PlaySfx(m_clipExplosion);
             m_explosionParticule.SetActive(true);
-            //ScreenShake.instance.m_amount += m_shakeAmount;
+            ScreenShake.instance.m_amount += m_shakeAmount;
 
             return m_explosionTime;
         }
