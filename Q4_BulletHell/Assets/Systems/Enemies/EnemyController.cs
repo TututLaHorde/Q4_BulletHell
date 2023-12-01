@@ -43,6 +43,7 @@ namespace BH.Enemies
         [SerializeField] private AudioClip m_clipImpact;
         [SerializeField][Range(0f, 1f)] private float m_impactVolume;
 
+        public int m_poolingIndex { get; private set; }
         private bool m_isAlive = true;
 
         private CameraFollow m_camFollow;
@@ -91,6 +92,19 @@ namespace BH.Enemies
         }
 
         /*-------------------------------------------------------------------*/
+
+        public void Init(int poolingindex)
+        {
+            //for pooling
+            m_poolingIndex = poolingindex;
+
+            //init life
+            m_life = new EnemyLife(m_maxHp, m_bossHpBar, this);
+
+            //active but not explosion fx
+            transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.SetActive(true);
+        }
 
         public void FinishAnAtkPattern()
         {

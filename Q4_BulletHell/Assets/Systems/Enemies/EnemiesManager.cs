@@ -4,37 +4,63 @@ using BH.Game;
 
 namespace BH.Enemies
 {
+    [RequireComponent (typeof (EnemiesSpawner))]
+
     public class EnemiesManager : MonoBehaviour
     {
-        List<EnemyController> m_enemies = new();
+        private List<EnemyController> m_enemies = new();
+        private EnemiesSpawner m_spawner;
+
+        /*-------------------------------------------------------------------*/
 
         private void Start()
         {
-            //get all enemies
+            //get all spawned enemies
             for (int i = 0; i < transform.childCount; i++)
             {
-                if (transform.GetChild(i).TryGetComponent(out EnemyController enemy))
+                if (transform.GetChild(i).gameObject.activeSelf && transform.GetChild(i).TryGetComponent(out EnemyController enemy))
                 {
                     m_enemies.Add(enemy);
                 }
             }
+
+            //get own components
+            m_spawner = GetComponent<EnemiesSpawner>();
         }
 
-        public void AnEnemyDie(EnemyController enemy, bool isLastEnemy)
+        /*-------------------------------------------------------------------*/
+
+        public void AnEnemyDie(EnemyController enemy, bool isLastBoss)
         {
             if (m_enemies.Contains(enemy))
             {
                 //player win if the last enemy die
-                if (isLastEnemy)
+                if (isLastBoss)
                 {
                     GameManager.instance.LastEnemyDie();
                 }
-                else
+                //kill boss
+                else if (enemy.IsBossEnemy())
                 {
-                    //kill the enemy
                     enemy.gameObject.SetActive(false);
                 }
+                //kill enemy
+                else
+                {
+                    m_spawner.EnemyDie(enemy);
+                    m_enemies.Remove(enemy);
+                }
             }
+        }
+
+        public void AnEnemySpawn(EnemyController enemy)
+        {
+            m_enemies.Add(enemy);
+        }
+
+        public int GetNbEnemyAlive()
+        {
+            return m_enemies.Count;
         }
 
         public bool IsLastBoss(EnemyController enemy)
