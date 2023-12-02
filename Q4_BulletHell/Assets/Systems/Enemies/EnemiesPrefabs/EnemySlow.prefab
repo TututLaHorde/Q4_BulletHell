@@ -340,8 +340,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297039bb7a976de49af787a60a49b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHp: 120
+  m_maxHp: 100
   m_bossHpBar: {fileID: 0}
+  m_txtBossName: {fileID: 0}
+  m_bossName: BOSS
   m_atkPatterns1:
   - {fileID: 8890481747024835163}
   m_atkPatterns2:
