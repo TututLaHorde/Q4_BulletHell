@@ -9,6 +9,7 @@ using BH.Game;
 using BH.Player;
 using BH.Music;
 using UnityEngine.Assertions;
+using TMPro;
 
 namespace BH.Enemies
 {
@@ -21,9 +22,13 @@ namespace BH.Enemies
     {
         [Header("Life")]
         [SerializeField] private int m_maxHp;
-        [SerializeField] private VisualSliderBar m_bossHpBar;
-
         [HideInInspector] public EnemyLife m_life;
+
+        [Header("Boss params")]
+        [SerializeField] private VisualSliderBar m_bossHpBar;
+        public TMP_Text m_txtBossName;
+        public string m_bossName = "BOSS";
+
 
         [Header("Atk Patterns")]
         [SerializeField] private List<AtkPattern> m_atkPatterns1 = new();
@@ -64,6 +69,12 @@ namespace BH.Enemies
         private void Awake()
         {
             m_originalScale = transform.localScale;
+
+            //init boss name
+            if (m_txtBossName != null)
+            {
+                m_txtBossName.text = m_bossName;
+            }
         }
 
         private void Start()
@@ -164,8 +175,8 @@ namespace BH.Enemies
         }
 
         public bool IsBossEnemy()
-        {
-            return m_bossHpBar != null;
+        {          
+            return (m_bossHpBar != null && m_txtBossName != null);
         }
 
         /*-------------------------------------------------------------------*/

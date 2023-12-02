@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297039bb7a976de49af787a60a49b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHp: 150
+  m_maxHp: 120
   m_bossHpBar: {fileID: 0}
   m_atkPatterns1:
   - {fileID: 1555678669668561211}

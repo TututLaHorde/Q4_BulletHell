@@ -18,7 +18,7 @@ namespace BH.Enemies
         [SerializeField][Min(0f)] private float m_timeToMinInterval;
         [SerializeField] private AnimationCurve m_intervalCurve;
         private float m_currIntervalTime;
-        private float m_timeFromStart;
+        private float m_timeFromPrevious;
 
         private List<PoolingManager<EnemyController>> m_pooling = new();
         private EnemiesManager m_manager;
@@ -66,10 +66,10 @@ namespace BH.Enemies
                 }
 
                 //for interval difficulty 
-                if (m_timeFromStart < m_timeToMinInterval)
+                if (m_timeFromPrevious < m_timeToMinInterval)
                 {
-                    m_timeFromStart += Time.deltaTime;
-                    m_timeFromStart = Mathf.Clamp(m_timeFromStart, 0, m_timeToMinInterval);
+                    m_timeFromPrevious += Time.deltaTime;
+                    m_timeFromPrevious = Mathf.Clamp(m_timeFromPrevious, 0, m_timeToMinInterval);
                 }
             }
         }
@@ -105,7 +105,7 @@ namespace BH.Enemies
         private void SetIntervalTime()
         {
             //lerp with the difficulty curve
-            float lerpValue = m_timeFromStart / m_timeToMinInterval;
+            float lerpValue = m_timeFromPrevious / m_timeToMinInterval;
             lerpValue = m_intervalCurve.Evaluate(lerpValue);
 
             m_currIntervalTime = Mathf.Lerp(m_maxIntervalTime, m_minIntervalTime, lerpValue);

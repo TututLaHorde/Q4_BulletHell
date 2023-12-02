@@ -4,7 +4,6 @@ using BH.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Rendering;
 
 namespace BH.Game
 {
@@ -59,6 +58,9 @@ namespace BH.Game
 
         public void LastEnemyDie()
         {
+            //Set Score
+            ScoreManager.instance.OnVictory();
+
             //Active UI
             m_victoryUI.SetActive(true);
 
@@ -76,8 +78,12 @@ namespace BH.Game
 
         public void PlayerDie()
         {
+            //if player can die
             if (m_player.m_isAlive && !m_playerIsImmortal)
             {
+                //Set Score
+                ScoreManager.instance.OnDefeat();
+
                 StartCoroutine(PlayerDeath());
             }
         }
