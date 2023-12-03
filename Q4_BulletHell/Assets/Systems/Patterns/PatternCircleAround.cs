@@ -1,11 +1,19 @@
 using BH.Enemies;
 using BH.Game;
+
 using System;
 using System.Collections;
 using UnityEngine;
 
 namespace BH.Patterns
 {
+    public enum TargetState
+    {
+        none,
+        targetPlayerEachBurst,
+        targetPlayerFirstBurst,
+    }
+
     public class PatternCircleAround : AtkPattern
     {
         [Header("Shoot Origin")]
@@ -18,9 +26,8 @@ namespace BH.Patterns
         [SerializeField] private int m_nbBullet;
         [SerializeField] private float m_shakeAmount;
 
-        [Header("If targets the player")]
-        [SerializeField] private Transform m_playerTrs;
-        [SerializeField] private bool m_targetOnlyFirstBurst;
+        [Header("Target")]
+        [SerializeField] private TargetState m_targetState;
 
         [Header("Audio")]
         [SerializeField] private AudioClip m_shootClip;
@@ -115,7 +122,8 @@ namespace BH.Patterns
             float ratio = currentTime / maxTime;
 
             //align with the player
-            if (m_playerTrs != null && (!m_targetOnlyFirstBurst || m_targetOnlyFirstBurst && burstIndex == 0))
+            if (m_playerTrs != null && 
+               (m_targetState == TargetState.targetPlayerEachBurst || m_targetState == TargetState.targetPlayerFirstBurst && burstIndex == 0))
             {
                 LookToTarget(m_playerTrs.position, Vector2.right, ratio);
             }

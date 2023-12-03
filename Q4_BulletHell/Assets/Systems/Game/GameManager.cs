@@ -4,7 +4,6 @@ using BH.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
-using UnityEngine.Rendering;
 
 namespace BH.Game
 {
@@ -21,13 +20,14 @@ namespace BH.Game
         [Header("Pause")]
         [SerializeField] private float m_timeAfterPause;
 
-        [Header("Others")]
-        [SerializeField] private PlayerController m_player;
-
         [Header("Audio")]
         [SerializeField] private float m_musicStopTime = 1.5f;
         [SerializeField] private AudioClip m_clipWin;
         [SerializeField] private AudioClip m_clipLose;
+
+        [Header("Others")]
+        [SerializeField] private PlayerController m_player;
+        public bool m_playerIsImmortal;
 
         /*-------------------------------------------------------------------*/
 
@@ -58,6 +58,9 @@ namespace BH.Game
 
         public void LastEnemyDie()
         {
+            //Set Score
+            ScoreManager.instance.OnVictory();
+
             //Active UI
             m_victoryUI.SetActive(true);
 
@@ -75,8 +78,12 @@ namespace BH.Game
 
         public void PlayerDie()
         {
-            if (m_player.m_isAlive)
+            //if player can die
+            if (m_player.m_isAlive && !m_playerIsImmortal)
             {
+                //Set Score
+                ScoreManager.instance.OnDefeat();
+
                 StartCoroutine(PlayerDeath());
             }
         }

@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &86605779390097922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8549701344825170549}
+  - component: {fileID: 3868522133130733103}
+  m_Layer: 0
+  m_Name: OndeV1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8549701344825170549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86605779390097922}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1733264584327724839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3868522133130733103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86605779390097922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
+  m_timeBeforeNextPattern: 0.5
+  m_burstNb: 2
+  m_timeBetweenBurst: 1
+  m_startAngle: 0
+  m_angleOffset: 360
+  m_distFromCenter: 2
+  m_rotationEachBurst: 1.4
+  m_nbBullet: 32
+  m_shakeAmount: 0
+  m_targetState: 2
+  m_shootClip: {fileID: 0}
+  m_shootSource: {fileID: 0}
+  m_volume: 0
 --- !u!1 &658695532407434565
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +69,7 @@ GameObject:
   - component: {fileID: 3423233604242601189}
   - component: {fileID: 301315403896735975}
   m_Layer: 0
-  m_Name: 8PositiveBurst
+  m_Name: BurstPositiveV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 20
   m_timeBetweenBurst: 0.1
@@ -54,8 +112,7 @@ MonoBehaviour:
   m_rotationEachBurst: 5
   m_nbBullet: 8
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 0
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -92,6 +149,122 @@ Transform:
   - {fileID: 2558260706131971632}
   m_Father: {fileID: 194244941269786585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1941798125472161103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612086209036140607}
+  - component: {fileID: 740408841477239305}
+  m_Layer: 0
+  m_Name: OndeV2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &612086209036140607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941798125472161103}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1733264584327724839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740408841477239305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941798125472161103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
+  m_timeBeforeNextPattern: 0.9
+  m_burstNb: 2
+  m_timeBetweenBurst: 1
+  m_startAngle: 0
+  m_angleOffset: 360
+  m_distFromCenter: 2
+  m_rotationEachBurst: 1.4
+  m_nbBullet: 64
+  m_shakeAmount: 0
+  m_targetState: 2
+  m_shootClip: {fileID: 0}
+  m_shootSource: {fileID: 0}
+  m_volume: 0
+--- !u!1 &2726041054341038034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 853190287817277603}
+  - component: {fileID: 6683640210147227001}
+  m_Layer: 0
+  m_Name: SnailShellV3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &853190287817277603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726041054341038034}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 133526322906207899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6683640210147227001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726041054341038034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
+  m_timeBeforeNextPattern: 0.2
+  m_burstNb: 30
+  m_timeBetweenBurst: 0.05
+  m_startAngle: 0
+  m_angleOffset: 45
+  m_distFromCenter: 2
+  m_rotationEachBurst: 7
+  m_nbBullet: 12
+  m_shakeAmount: 0
+  m_targetState: 0
+  m_shootClip: {fileID: 0}
+  m_shootSource: {fileID: 0}
+  m_volume: 0
 --- !u!1 &2916736535589642827
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +276,7 @@ GameObject:
   - component: {fileID: 7745660088273525943}
   - component: {fileID: 1897473262972452826}
   m_Layer: 0
-  m_Name: 20NegativeWall
+  m_Name: WallNegativeV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 6
   m_timeBetweenBurst: 0.4
@@ -146,8 +319,7 @@ MonoBehaviour:
   m_rotationEachBurst: -20
   m_nbBullet: 20
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 1
+  m_targetState: 2
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -163,7 +335,7 @@ GameObject:
   - component: {fileID: 4019525880257047829}
   - component: {fileID: 1217022499337080805}
   m_Layer: 0
-  m_Name: 5SniperShoots
+  m_Name: SniperShootsV3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 1483555154982396919, guid: ea2e6e7ec2bcff54bb8e235ec006c68a, type: 3}
   m_timeBeforeNextPattern: 2
   m_burstNb: 5
   m_timeBetweenBurst: 0.3
@@ -206,8 +378,7 @@ MonoBehaviour:
   m_rotationEachBurst: 0
   m_nbBullet: 9
   m_shakeAmount: 0.2
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 1
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 1217022499337080805}
   m_volume: 1
@@ -318,7 +489,7 @@ GameObject:
   - component: {fileID: 4230778657540715395}
   - component: {fileID: 1630830678884325065}
   m_Layer: 0
-  m_Name: 20PositiveWall
+  m_Name: WallPositiveV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 6
   m_timeBetweenBurst: 0.4
@@ -361,8 +532,7 @@ MonoBehaviour:
   m_rotationEachBurst: 20
   m_nbBullet: 20
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 1
+  m_targetState: 2
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -377,7 +547,7 @@ GameObject:
   - component: {fileID: 7670275645818846083}
   - component: {fileID: 3645207306085964621}
   m_Layer: 0
-  m_Name: 10PositiveWall
+  m_Name: WallPositiveV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 6
   m_timeBetweenBurst: 0.4
@@ -420,8 +590,7 @@ MonoBehaviour:
   m_rotationEachBurst: 20
   m_nbBullet: 10
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 1
+  m_targetState: 2
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -436,7 +605,7 @@ GameObject:
   - component: {fileID: 5859903642386978244}
   - component: {fileID: 4139617226918796396}
   m_Layer: 0
-  m_Name: 10NegativeWall
+  m_Name: WallNegativeV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 6
   m_timeBetweenBurst: 0.4
@@ -479,8 +648,7 @@ MonoBehaviour:
   m_rotationEachBurst: -20
   m_nbBullet: 10
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 1
+  m_targetState: 2
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -496,7 +664,7 @@ GameObject:
   - component: {fileID: 7399371460453375006}
   - component: {fileID: 7383257221720241908}
   m_Layer: 0
-  m_Name: 4SniperShoots
+  m_Name: SniperShootsV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 1483555154982396919, guid: ea2e6e7ec2bcff54bb8e235ec006c68a, type: 3}
   m_timeBeforeNextPattern: 2
   m_burstNb: 4
   m_timeBetweenBurst: 0.3
@@ -539,8 +707,7 @@ MonoBehaviour:
   m_rotationEachBurst: 0
   m_nbBullet: 7
   m_shakeAmount: 0.2
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 1
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 7383257221720241908}
   m_volume: 1
@@ -652,7 +819,7 @@ GameObject:
   - component: {fileID: 6397789334490677740}
   - component: {fileID: 2534018390962352514}
   m_Layer: 0
-  m_Name: SniperCone
+  m_Name: SniperConeV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,9 +852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
-  m_timeBeforeNextPattern: 2
-  m_burstNb: 20
+  m_pbBulletManager: {fileID: 1483555154982396919, guid: ea2e6e7ec2bcff54bb8e235ec006c68a, type: 3}
+  m_timeBeforeNextPattern: 1
+  m_burstNb: 10
   m_timeBetweenBurst: 0.1
   m_startAngle: 355
   m_angleOffset: 10
@@ -695,8 +862,7 @@ MonoBehaviour:
   m_rotationEachBurst: 0
   m_nbBullet: 3
   m_shakeAmount: 0.07
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 1
+  m_targetState: 2
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 2534018390962352514}
   m_volume: 1
@@ -830,6 +996,7 @@ Transform:
   - {fileID: 5486772214225795679}
   - {fileID: 3531966432843011340}
   - {fileID: 2351091157125909684}
+  - {fileID: 1733264584327724839}
   m_Father: {fileID: 792613456794270321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4442791815113875352
@@ -843,7 +1010,7 @@ GameObject:
   - component: {fileID: 4582479983715852234}
   - component: {fileID: 2387364371754076252}
   m_Layer: 0
-  m_Name: 16NegativeBurst
+  m_Name: BurstNegativeV3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 20
   m_timeBetweenBurst: 0.1
@@ -886,11 +1053,44 @@ MonoBehaviour:
   m_rotationEachBurst: -5
   m_nbBullet: 16
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 0
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
+--- !u!1 &4568313236031431444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1733264584327724839}
+  m_Layer: 0
+  m_Name: Onde
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1733264584327724839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4568313236031431444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8549701344825170549}
+  - {fileID: 612086209036140607}
+  - {fileID: 8583711842830997234}
+  m_Father: {fileID: 194244941269786585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4710153510821022708
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,9 +1170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 1483555154982396919, guid: ea2e6e7ec2bcff54bb8e235ec006c68a, type: 3}
   m_timeBeforeNextPattern: 1
-  m_burstNb: 20
+  m_burstNb: 10
   m_timeBetweenBurst: 0.1
   m_startAngle: 355
   m_angleOffset: 10
@@ -980,8 +1180,7 @@ MonoBehaviour:
   m_rotationEachBurst: 0
   m_nbBullet: 5
   m_shakeAmount: 0.07
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 1
+  m_targetState: 2
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 6800502250807500470}
   m_volume: 1
@@ -1112,6 +1311,7 @@ Transform:
   m_Children:
   - {fileID: 7479718919655224288}
   - {fileID: 1035839362100441748}
+  - {fileID: 853190287817277603}
   m_Father: {fileID: 194244941269786585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6100401380984449792
@@ -1128,7 +1328,7 @@ GameObject:
   - component: {fileID: 7163912411572428632}
   - component: {fileID: 5306973004631570228}
   m_Layer: 3
-  m_Name: Enemy
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1280,30 +1480,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_maxHp: 8000
   m_bossHpBar: {fileID: 0}
+  m_txtBossName: {fileID: 0}
+  m_bossName: BOSS
   m_atkPatterns1:
-  - {fileID: 301315403896735975}
-  - {fileID: 301315403896735975}
+  - {fileID: 3645207306085964621}
   - {fileID: 1555678669668561211}
-  - {fileID: 301315403896735975}
-  - {fileID: 6274080273711538815}
-  - {fileID: 1555678669668561211}
-  - {fileID: 6274080273711538815}
+  - {fileID: 8745298060859643085}
+  - {fileID: 4139617226918796396}
   - {fileID: 6397789334490677740}
   m_atkPatterns2:
-  - {fileID: 301315403896735975}
-  - {fileID: 4079459265334720996}
-  - {fileID: 1555678669668561211}
-  - {fileID: 4139617226918796396}
   - {fileID: 7399371460453375006}
-  - {fileID: 3645207306085964621}
-  - {fileID: 6397789334490677740}
-  m_atkPatterns3: []
+  - {fileID: 3041088345530132682}
+  - {fileID: 301315403896735975}
+  - {fileID: 5732188783388996498}
+  - {fileID: 1630830678884325065}
+  - {fileID: 3041088345530132682}
+  - {fileID: 1897473262972452826}
+  m_atkPatterns3:
+  - {fileID: 4019525880257047829}
+  - {fileID: 6274080273711538815}
+  - {fileID: 2387364371754076252}
+  - {fileID: 4019525880257047829}
+  - {fileID: 4079459265334720996}
+  - {fileID: 7129565444756710632}
+  - {fileID: 4019525880257047829}
+  - {fileID: 2387364371754076252}
+  - {fileID: 4079459265334720996}
   m_explosionParticule: {fileID: 1522584376369345162}
-  m_explosionTime: 1.5
+  m_explosionTime: 3.5
   m_shakeAmount: 1
+  m_sprites: {fileID: 9150245288768852869}
   m_clipExplosion: {fileID: 8300000, guid: dc7805a91bab9ba44991849cf213a05a, type: 3}
   m_clipImpact: {fileID: 8300000, guid: 47afe5d344bb0b340b93f287173449e3, type: 3}
+  m_clipRegen: {fileID: 8300000, guid: 0029dbd5a531ca549903783aef4fdaf5, type: 3}
   m_impactVolume: 0.07
+  m_absorbtionTime: 1
+  m_absorbtionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 1.0857668
+      outSlope: 1.0857668
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.083333336
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0.11138702
+      outSlope: 0.11138702
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.32999998
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_regenMultiplier: 2
 --- !u!1 &6397044100769280312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,7 +1614,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 25
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.76862746, g: 0.81960785, b: 1, a: 1}
   m_FlipX: 0
@@ -1390,6 +1626,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6498366932129110233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8583711842830997234}
+  - component: {fileID: 7129565444756710632}
+  m_Layer: 0
+  m_Name: OndeV3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8583711842830997234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498366932129110233}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1733264584327724839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7129565444756710632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498366932129110233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
+  m_timeBeforeNextPattern: 0.5
+  m_burstNb: 2
+  m_timeBetweenBurst: 1
+  m_startAngle: 0
+  m_angleOffset: 360
+  m_distFromCenter: 2
+  m_rotationEachBurst: 1.4
+  m_nbBullet: 96
+  m_shakeAmount: 0
+  m_targetState: 2
+  m_shootClip: {fileID: 0}
+  m_shootSource: {fileID: 0}
+  m_volume: 0
 --- !u!1 &6610401710162736284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1696,7 @@ GameObject:
   - component: {fileID: 1555678669668561211}
   - component: {fileID: 8703150315420054238}
   m_Layer: 0
-  m_Name: 3SniperShoots
+  m_Name: SniperShootsV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 1483555154982396919, guid: ea2e6e7ec2bcff54bb8e235ec006c68a, type: 3}
   m_timeBeforeNextPattern: 3
   m_burstNb: 3
   m_timeBetweenBurst: 0.3
@@ -1445,8 +1739,7 @@ MonoBehaviour:
   m_rotationEachBurst: 0
   m_nbBullet: 5
   m_shakeAmount: 0.2
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 1
   m_shootClip: {fileID: 8300000, guid: 97bd9783458e1614ab9ce43cfd56ddc2, type: 3}
   m_shootSource: {fileID: 8703150315420054238}
   m_volume: 1
@@ -1557,7 +1850,7 @@ GameObject:
   - component: {fileID: 5994251848903715700}
   - component: {fileID: 6274080273711538815}
   m_Layer: 0
-  m_Name: 8NegativeBurst
+  m_Name: BurstNegativeV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1590,7 +1883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 20
   m_timeBetweenBurst: 0.1
@@ -1600,8 +1893,7 @@ MonoBehaviour:
   m_rotationEachBurst: -5
   m_nbBullet: 8
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 0
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -1616,7 +1908,7 @@ GameObject:
   - component: {fileID: 7033424636193684314}
   - component: {fileID: 4079459265334720996}
   m_Layer: 0
-  m_Name: 16PositiveBurst
+  m_Name: BurstPositiveV3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1649,7 +1941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0
   m_burstNb: 20
   m_timeBetweenBurst: 0.1
@@ -1659,8 +1951,7 @@ MonoBehaviour:
   m_rotationEachBurst: 5
   m_nbBullet: 16
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 0
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -1736,7 +2027,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 27
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.76792455, g: 0.81859386, b: 1, a: 1}
   m_FlipX: 0
@@ -1820,7 +2111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 26
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.18322356, g: 0.13737984, b: 0.3207547, a: 1}
   m_FlipX: 0
@@ -1878,7 +2169,7 @@ GameObject:
   - component: {fileID: 7479718919655224288}
   - component: {fileID: 8745298060859643085}
   m_Layer: 0
-  m_Name: SnailShell
+  m_Name: SnailShellV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1911,7 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0.2
   m_burstNb: 15
   m_timeBetweenBurst: 0.1
@@ -1921,8 +2212,7 @@ MonoBehaviour:
   m_rotationEachBurst: 15
   m_nbBullet: 8
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 0
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
@@ -2005,18 +2295,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c1e271acd329240b4e954e0e4d54ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_bulletManager: {fileID: 0}
+  m_pbBulletManager: {fileID: 397434317161180870, guid: e3d36910c4b82004bb95ca9494c0203e, type: 3}
   m_timeBeforeNextPattern: 0.2
-  m_burstNb: 30
-  m_timeBetweenBurst: 0.05
+  m_burstNb: 15
+  m_timeBetweenBurst: 0.1
   m_startAngle: 0
   m_angleOffset: 45
   m_distFromCenter: 2
-  m_rotationEachBurst: 7
+  m_rotationEachBurst: 15
   m_nbBullet: 12
   m_shakeAmount: 0
-  m_playerTrs: {fileID: 0}
-  m_targetOnlyFirstBurst: 0
+  m_targetState: 0
   m_shootClip: {fileID: 0}
   m_shootSource: {fileID: 0}
   m_volume: 0
