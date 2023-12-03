@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace BH.MenusUI
 {
@@ -10,7 +11,12 @@ namespace BH.MenusUI
 
         [Header("UI")]
         [SerializeField] private TMP_Text m_txtBossSurvive;
+        [SerializeField] private TMP_Text m_txtBossLowestHP;
         [SerializeField] private TMP_Text m_txtStats;
+        [SerializeField] private TMP_Text m_txtHighScore;
+
+        [SerializeField] private GameObject m_highScoreTrophy;
+        [SerializeField] private GameObject m_lowestHPTrophy;
         [SerializeField] private List<GameObject> m_threeStars = new();
 
         [Header("Score Params")]
@@ -33,6 +39,10 @@ namespace BH.MenusUI
         private int m_nbEnemiesDead; // without boss
         private int m_nbBossDead;
 
+        //player prefs key
+        private readonly string m_highScoreKey = "highscore";
+        private readonly string m_lowestBossHpKey = "LowestBossHp";
+
         /*-------------------------------------------------------------------*/
 
         private void Awake()
@@ -47,6 +57,14 @@ namespace BH.MenusUI
             }
 
             InitScoreValues();
+
+            Assert.IsNotNull(m_txtBossSurvive);
+            Assert.IsNotNull(m_txtBossLowestHP);
+            Assert.IsNotNull(m_txtStats);
+            Assert.IsNotNull(m_txtHighScore);
+
+            Assert.IsNotNull(m_highScoreTrophy);
+            Assert.IsNotNull(m_lowestHPTrophy);
         }
 
         private void Update()
@@ -59,13 +77,19 @@ namespace BH.MenusUI
         public void OnDefeat()
         {
             //draw boss remaining hp
-            if (m_txtBossSurvive != null)
-            {
-                m_txtBossSurvive.text = "The " + m_lastBossName + " survived with ";
+            m_txtBossSurvive.text = "The " + m_lastBossName + " survived with ";
 
-                int lifePercent = Mathf.CeilToInt(m_lastBossLifeRatio * 100f);
-                m_txtBossSurvive.text += lifePercent + " % of his HP";
+            int lifePercent = Mathf.CeilToInt(m_lastBossLifeRatio * 100f);
+            m_txtBossSurvive.text += lifePercent + "% of his HP";
+
+            //set lowest HP
+            if (PlayerPrefs.GetInt(m_lowestBossHpKey) >= lifePercent)
+            {
+                PlayerPrefs.SetInt(m_lowestBossHpKey, lifePercent);
+                m_lowestHPTrophy.SetActive(true);
             }
+
+            m_txtBossLowestHP.text = "Best : " + PlayerPrefs.GetInt(m_lowestBossHpKey) + "%";
         }
 
         public void OnVictory()
@@ -74,18 +98,20 @@ namespace BH.MenusUI
             string time = SecondToChrono();
 
             //calculate score
-            string score = GetScoreText();
+            CalculateScore();
+            string score = GetScoreText(m_score);
+            string highScore = GetScoreText(PlayerPrefs.GetFloat(m_highScoreKey));
 
             //Stars
             ActiveStars();
 
-            //draw
-            if (m_txtStats != null)
-            {
-                m_txtStats.text  = score + "\n";
-                m_txtStats.text += time + "\n";
-                m_txtStats.text += (m_nbEnemiesDead + m_nbBossDead).ToString();
-            }
+            //draw current stats
+            m_txtStats.text  = score + "\n";
+            m_txtStats.text += time + "\n";
+            m_txtStats.text += (m_nbEnemiesDead + m_nbBossDead).ToString() + "\n";
+
+            //draw high score
+            m_txtHighScore.text = "HIGHSCORE : " + highScore;
         }
 
         public void EnemyDeath()
@@ -110,6 +136,17 @@ namespace BH.MenusUI
         {
             m_bossKillValue = Mathf.RoundToInt(m_gameAverageTime * m_timeMultiplicator * m_idealBossScoreValue);
             m_enemyKillValue = Mathf.RoundToInt(m_enemyScoreRelativeToBoss * m_bossKillValue);
+
+            //first high score
+            if (!PlayerPrefs.HasKey(m_highScoreKey))
+            {
+                PlayerPrefs.SetFloat(m_highScoreKey, 0f);
+            }
+
+            if(!PlayerPrefs.HasKey(m_lowestBossHpKey))
+            {
+                PlayerPrefs.SetInt(m_lowestBossHpKey, 100);
+            }
         }
 
         private string SecondToChrono()
@@ -137,7 +174,32 @@ namespace BH.MenusUI
             return time;
         }
 
-        private string GetScoreText()
+        private string GetScoreText(float score)
+        {
+            string scoretxt = "";
+
+            //set string
+            int thousand = Mathf.FloorToInt((score % 1000000f) / 1000f);
+            if (thousand > 0)
+            {
+                scoretxt = thousand + " ";
+            }
+
+            int rest = Mathf.RoundToInt(score % 1000f);
+            if (rest < 10)
+            {
+                scoretxt += "00";
+            }
+            else if (rest < 100)
+            {
+                scoretxt += "0";
+            }
+            scoretxt += rest;
+
+            return scoretxt;
+        }
+
+        private void CalculateScore()
         {
             //calculate score
             m_score = (m_nbEnemiesDead * m_enemyKillValue + m_nbBossDead * m_bossKillValue) / (m_timeFromStart * m_timeMultiplicator);
@@ -146,26 +208,15 @@ namespace BH.MenusUI
             //limit
             m_score = Mathf.Clamp(m_score, 0, 999999f);
 
-            //set string
-            int thousand = Mathf.FloorToInt((m_score % 1000000f) / 1000f);
-            string score = "";
-            if (thousand > 0)
+            //Set Highscore
+            if (PlayerPrefs.GetFloat(m_highScoreKey) <= m_score)
             {
-                score = thousand + " ";
+                PlayerPrefs.SetFloat(m_highScoreKey, m_score);
+                m_highScoreTrophy.SetActive(true);
             }
 
-            int rest = Mathf.RoundToInt(m_score % 1000f);
-            if (rest < 10)
-            {
-                score += "00";
-            }
-            else if (rest < 100)
-            {
-                score += "0";
-            }
-            score += rest;
-
-            return score;
+            //Set Lowest Boss HP to 0%
+            PlayerPrefs.SetInt(m_lowestBossHpKey, 0);
         }
 
         private void ActiveStars()
